@@ -1,3 +1,9 @@
+# Integrantes
+* Dirceu Cheliga
+* Giordano Serafini
+* Victor Gabriel
+* Vinicius Yudi
+
 # GiveLink
 A GiveLink é uma plataforma que intermedia e conecta doadores a instituições como hospitais, ONGs, etc. Onde por meio da plataforma é possível encontrar as instituições e realizar as doações diretamente pela plataforma. O principal objetivo da GiveLink é facilitar e fomentar o filantroprismo por meio da tecnologia.
 
@@ -12,11 +18,5 @@ Rode o comando para instalar o node:
 
 Rode o comando para rodar a aplicação:
 > npm run dev
-
-# Integrantes
-* Dirceu Cheliga
-* Giordano Serafini
-* Victor Gabriel
-* Vinicius Yudi
 
 
