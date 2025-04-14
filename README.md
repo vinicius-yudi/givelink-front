@@ -13,4 +13,10 @@ Rode o comando para instalar o node:
 Rode o comando para rodar a aplicação:
 > npm run dev
 
+# Integrantes
+* Dirceu Cheliga
+* Giordano Serafini
+* Victor Gabriel
+* Vinicius Yudi
+
 
