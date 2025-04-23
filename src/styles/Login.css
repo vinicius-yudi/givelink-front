@@ -1,0 +1,196 @@
+/* src/styles/login.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 20px;
+    background-image: url('../assets/background-login.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .login-box {
+    display: flex;
+    width: 100%; 
+    max-width: 1000px;              
+    height: auto;               
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  .login-form {
+    width: 50%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .logo-img {
+    width: 400px;
+    margin-bottom: 50px;
+    align-self: center;
+  }
+
+  .input-error {
+    color: #ef4444; /* vermelho */
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+
+  }
+
+  .success-message {
+    color: #22c55e; /* verde */
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  
+  .input-group {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 16px auto;
+    padding: 5px;
+
+  }
+  
+  .input-underline {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    padding: 8px 36px 8px 8px;
+    font-size: 14px;
+    color: #000;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  .input-underline::placeholder {
+    color: #999;
+  }
+  
+  .input-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .input-icon img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .btn-login {
+    background-color: #1e1b4b;
+    color: white;
+    padding: 12px ;
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 0 auto 16px auto;
+  }
+  
+  .btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 0 auto;
+    color: #888;
+
+  }
+  
+  .divider {
+    text-align: center;
+    margin: 30px 0;
+    color: #888;
+  }
+  
+  
+  .google-icon {
+    width: 18px;
+    margin-right: 10px;
+  }
+  
+  .signup-link {
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: center;
+    color: #888;
+  }
+  
+  .signup-link a {
+    color: #4338ca;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+ .login-info {
+  width: 50%;
+  background-color: #1e1b4b;
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border: 2px solid #38bdf8; /* azul claro */
+  border-left: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+  
+  .login-info h2 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+  
+  .login-info p {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .login-info p span {
+    color: #7dd3fc;
+    font-weight: bold;
+  }
+  
+  .info-icon {
+    margin-top: 32px;
+    margin-left: 250px;
+    width: 130px;
+  }
+  
