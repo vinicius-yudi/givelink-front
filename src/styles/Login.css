@@ -230,31 +230,108 @@
       margin-top: 20px;
     }
   }
-  
-  /* Telas muito pequenas (ex: < 480px) */
+
   @media (max-width: 480px) {
     .login-container {
       padding: 10px;
     }
   
-    .btn-login,
-    .btn-google,
-    .input-group {
+    .login-box {
+      flex-direction: column;
       max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+    
+    .login-form {
+      width: 100%;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+  
+    
+    .login-info {
+      width: 100%;
+      padding: 24px 16px;
+      text-align: center;
+    }
+  
+    .logo-img {
+      width: 160px;
+      margin-bottom: 24px;
+    }
+  
+    .input-group {
+      width: 100%;
+      max-width: none;
+      margin-bottom: 12px;
+      position: relative;
+      padding: 0;
+    }
+  
+    .input-underline {
+      width: 100%;
+      padding: 8px 36px 8px 8px;
+      box-sizing: border-box;
+      font-size: 14px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      background-color: transparent;
+    }
+
+    .input-icon {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  
+    .btn-login,
+    .btn-google {
+      width: 100%;
+      max-width: none;
+      box-sizing: border-box;
+      font-size: 14px;
+      padding: 10px;
+      margin: 0 auto 16px auto;
+    }
+
+    .divider {
+      margin: 20px 0;
+      font-size: 13px;
+    }
+  
+    .signup-link {
+      font-size: 13px;
+      margin-top: 12px;
     }
   
     .login-info h2 {
-      font-size: 28px;
+      font-size: 24px;
+      margin-bottom: 12px;
     }
   
     .login-info p {
       font-size: 14px;
+      line-height: 1.4;
     }
   
-    .divider {
-      margin: 20px 0;
+    .info-icon {
+      width: 60px;
+      margin-top: 20px;
+      margin-left: 0;
     }
   }
+  
   
 
 
