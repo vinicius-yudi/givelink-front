@@ -1,0 +1,344 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100vh;
+    padding: 0;
+    background-image: url('../assets/background-login.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .register-box {
+    display: flex;
+    width: 100%;
+    max-width: 90%;
+    height: auto;
+    min-height: 520px; /* define um limite mínimo igual à tela de login */
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    align-items: stretch;
+  }
+
+  /* Bloco esquerdo: informativo */
+  .register-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+    width: 50%;
+    background-color: #1e1b4b;
+    color: white;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border: 2px solid #38bdf8;
+    border-right: none;
+    box-sizing: border-box;
+  }
+
+  .register-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1e1b4b;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    letter-spacing: 1px;
+    font-weight: bold;
+
+  }
+
+
+  
+  .register-info p {
+    font-size: 25px;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 20px 0;
+    font-weight: bold;
+    border-bottom-left-radius: 16px;
+    border-top-right-radius: 0;
+
+  }
+  
+  .register-info span {
+    color: #7dd3fc;
+    font-weight: bold;
+  }
+  
+
+  
+  .info-icon-top {
+    background-image: url('../assets/image2.png');
+    margin-bottom: 20px;
+    margin-right: 350px;
+    width: 80px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .info-icon-bottom {
+    background-image: url('../assets/image3.png');
+    margin-top: 20px;
+    margin-left: 350px;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .register-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  .form-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .input-group {
+    position: relative;
+    width: 100%;
+  }
+  
+  .input-underline {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    padding: 8px 36px 8px 8px;
+    font-size: 14px;
+    color: #000;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  .input-underline::placeholder {
+    color: #999;
+  }
+  
+  .input-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .input-icon img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .input-error {
+    color: #ef4444;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 4px;
+    display: block;
+    text-align: left;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .success-message {
+    color: #22c55e;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  
+  .btn-submit {
+    background-color: #1e1b4b;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 0 auto 16px auto;
+  }
+  
+  .btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 0 auto;
+    color: #888;
+  }
+  
+  .google-icon {
+    width: 18px;
+    margin-right: 10px;
+  }
+  
+  .divider {
+    text-align: center;
+    margin: 30px 0;
+    color: #888;
+  }
+  
+  .login-link {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    text-align: center;
+    color: #888;
+  }
+  
+  .login-link a {
+    color: #4338ca;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+
+  /* Tablets e celulares médios (até 768px) */
+@media (max-width: 768px) {
+    .register-box {
+      flex-direction: column;
+      max-width: 100%;
+      min-height: auto;
+      border-radius: 16px;
+    }
+  
+    .register-info,
+    .register-form {
+      width: 100%;
+      border-radius: 0;
+      padding: 32px 16px;
+      text-align: center;
+    }
+  
+    .register-info {
+      border: none;
+      border-bottom: 2px solid #38bdf8;
+      justify-content: center;
+    }
+  
+    .register-title {
+      font-size: 28px;
+      margin: 24px 0;
+    }
+  
+    .form-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .input-group {
+      max-width: 100%;
+      padding: 0 8px;
+    }
+  
+    .btn-submit,
+    .btn-google {
+      max-width: 100%;
+      font-size: 14px;
+    }
+  
+    .login-link {
+      font-size: 13px;
+      margin: 20px 0;
+    }
+  
+    .info-icon-top {
+      margin: 0 auto 20px auto;
+      margin-right: 0;
+    }
+  
+    .info-icon-bottom {
+      margin: 20px auto 0 auto;
+      margin-left: 0;
+    }
+  }
+  
+  /* Celulares menores (até 480px) */
+  @media (max-width: 480px) {
+
+
+    .register-form {
+        width: 100%;
+        padding: 24px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+    .register-container {
+      padding: 10px;
+    }
+  
+    .register-title {
+      font-size: 24px;
+    }
+  
+    .register-info p {
+      font-size: 16px;
+    }
+  
+    .input-underline {
+      font-size: 14px;
+      padding: 10px 36px 10px 10px;
+    }
+  
+    .btn-submit {
+      padding: 10px;
+    }
+  
+    .btn-google {
+      padding: 10px;
+    }
+  
+    .google-icon {
+      width: 16px;
+      margin-right: 8px;
+    }
+
+    .input-group,
+    .btn-submit,
+    .btn-google {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin: 0 auto 12px auto;
+    padding-left: 0;
+    padding-right: 0;
+    }
+
+  }
+  
+  

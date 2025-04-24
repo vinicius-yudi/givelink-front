@@ -105,7 +105,7 @@ const Login = () => {
           </button>
 
           <p className="signup-link">
-            Não tem conta? <a href="/cadastro">Cadastre-se</a>
+            Não tem conta? <a href="/register">Cadastre-se</a>
           </p>
         </div>
 
