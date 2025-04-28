@@ -1,14 +1,29 @@
+.register-page {
+  height: 100vh;
+  width: 100%;
+  background-image: url('../assets/background1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
 .register-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
     height: 100vh;
-    padding: 0;
-    background-image: url('../assets/background-login.png');
+    width: 70%;
+    padding: 20px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
   }
   
   .register-box {
@@ -16,12 +31,10 @@
     width: 100%;
     max-width: 90%;
     height: auto;
-    min-height: 520px; /* define um limite mínimo igual à tela de login */
     background: white;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    align-items: stretch;
   }
 
   /* Bloco esquerdo: informativo */
@@ -43,7 +56,7 @@
   }
 
   .register-title {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 800;
     color: #1e1b4b;
     text-align: center;
@@ -97,6 +110,7 @@
   }
   .register-form {
     width: 50%;
+    padding: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,11 +118,6 @@
   }
   
 
-  .form-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
   
   .input-group {
     position: relative;

@@ -1,7 +1,6 @@
 // src/pages/Register.tsx
 import React, { useState } from "react";
 import "../styles/register.css";
-import logo from "../assets/logoGivelink.png";
 import iconEmail from "../assets/iconEmail.png";
 import iconEyeOpen from "../assets/iconPasswordOpen.png";
 import iconEyeClosed from "../assets/iconPasswordClose.png";
@@ -36,83 +35,86 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <div className="register-box">
-        {/* Bloco esquerdo */}
-        <div className="register-info">
-          <div className="info-icon-top" />
-          <p>
-            Transforme <span>generosidade</span> em impacto! <br />
-            Cadastre-se e se <span>conecte-se</span> <br />
-            a quem precisa de sua <span>ajuda</span>
-          </p>
-          <div className="info-icon-bottom" />
-        </div>
 
-        {/* Formulário */}
-        <div className="register-form">
-            <h1 className="register-title">CADASTRE-SE</h1>
-
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder="Nome Completo"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="input-underline"
-            />
-            {errors.name && <span className="input-error">{errors.name}</span>}
+    <div className="register-page">
+      <div className="register-container">
+        <div className="register-box">
+          {/* Bloco esquerdo */}
+          <div className="register-info">
+            <div className="info-icon-top" />
+            <p>
+              Transforme <span>generosidade</span> em impacto! <br />
+              Cadastre-se e se <span>conecte-se</span> <br />
+              a quem precisa de sua <span>ajuda</span>
+            </p>
+            <div className="info-icon-bottom" />
           </div>
 
-          <div className="input-group">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="input-underline"
-            />
-            <span className="input-icon">
-              <img src={iconEmail} alt="Email Icon" />
-            </span>
-            {errors.email && <span className="input-error">{errors.email}</span>}
-          </div>
+          {/* Formulário */}
+          <div className="register-form">
+              <h1 className="register-title">CADASTRE-SE</h1>
 
-          <div className="input-group">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="input-underline"
-            />
-            <button type="button" className="input-icon" onClick={togglePassword}>
-              <img src={showPassword ? iconEyeOpen : iconEyeClosed} alt="Toggle Password" />
+            <div className="input-group">
+              <input
+                type="text"
+                placeholder="Nome Completo"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="input-underline"
+              />
+              {errors.name && <span className="input-error">{errors.name}</span>}
+            </div>
+
+            <div className="input-group">
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="input-underline"
+              />
+              <span className="input-icon">
+                <img src={iconEmail} alt="Email Icon" />
+              </span>
+              {errors.email && <span className="input-error">{errors.email}</span>}
+            </div>
+
+            <div className="input-group">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="input-underline"
+              />
+              <button type="button" className="input-icon" onClick={togglePassword}>
+                <img src={showPassword ? iconEyeOpen : iconEyeClosed} alt="Toggle Password" />
+              </button>
+              {errors.password && <span className="input-error">{errors.password}</span>}
+            </div>
+
+            {successMessage && <div className="success-message">{successMessage}</div>}
+
+            <button className="btn-submit" onClick={handleRegister}>CADASTRAR</button>
+
+            <div className="divider">- OU -</div>
+
+            <button className="btn-google">
+              <img
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                alt="Google"
+                className="google-icon"
+              />
+              Continue com Google
             </button>
-            {errors.password && <span className="input-error">{errors.password}</span>}
+
+            <p className="login-link">
+              Já possui conta? <a href="/login">Faça seu Login</a>
+            </p>
           </div>
-
-          {successMessage && <div className="success-message">{successMessage}</div>}
-
-          <button className="btn-submit" onClick={handleRegister}>CADASTRAR</button>
-
-          <div className="divider">- OU -</div>
-
-          <button className="btn-google">
-            <img
-              src="https://www.svgrepo.com/show/475656/google-color.svg"
-              alt="Google"
-              className="google-icon"
-            />
-            Continue com Google
-          </button>
-
-          <p className="login-link">
-            Já possui conta? <a href="/login">Faça seu Login</a>
-          </p>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
 

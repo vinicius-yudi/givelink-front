@@ -47,77 +47,79 @@ const Login = () => {
       
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <div className="login-form">
-        <img src={logo} alt="GIVELINK Logo" className="logo-img" />
+    <div className="login-page">
+      <div className="login-container">
+        <div className="login-box">
+          <div className="login-form">
+          <img src={logo} alt="GIVELINK Logo" className="logo-img" />
 
-            <div className="input-group">
-                <input 
-                type="email" 
-                placeholder="Email" 
-                className="input-underline" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)}
-                />
-                {errors.email && <span className="input-error">{errors.email}</span>}
-                <span className="input-icon">
-                    <img src={icon1} alt="Email" />
-                </span>
-                </div>
+              <div className="input-group">
+                  <input 
+                  type="email" 
+                  placeholder="Email" 
+                  className="input-underline" 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)}
+                  />
+                  {errors.email && <span className="input-error">{errors.email}</span>}
+                  <span className="input-icon">
+                      <img src={icon1} alt="Email" />
+                  </span>
+                  </div>
 
-                <div className="input-group">
-                <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Senha"
-                    className="input-underline"
-                    value={password}onChange={(e) => setPassword(e.target.value)}
-                />
-                {errors.password && <span className="input-error">{errors.password}</span>}
-                <button
-                    type="button"
-                    className="input-icon"
-                    onClick={togglePassword}
-                    aria-label="Mostrar ou ocultar senha"
-                >
-                    <img
-                    src={`/src/assets/${showPassword ? "iconPasswordOpen.png" : "iconPasswordClose.png"}`}
-                    alt="Toggle Password"
-                    />
-                </button>
-            </div>
-            
-            {successMessage && (
-                <div className="success-message">{successMessage}</div>
-            )}
+                  <div className="input-group">
+                  <input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Senha"
+                      className="input-underline"
+                      value={password}onChange={(e) => setPassword(e.target.value)}
+                  />
+                  {errors.password && <span className="input-error">{errors.password}</span>}
+                  <button
+                      type="button"
+                      className="input-icon"
+                      onClick={togglePassword}
+                      aria-label="Mostrar ou ocultar senha"
+                  >
+                      <img
+                      src={`/src/assets/${showPassword ? "iconPasswordOpen.png" : "iconPasswordClose.png"}`}
+                      alt="Toggle Password"
+                      />
+                  </button>
+              </div>
+              
+              {successMessage && (
+                  <div className="success-message">{successMessage}</div>
+              )}
 
-            <button className="btn-login" onClick={handleLogin}>ENTRAR</button>
+              <button className="btn-login" onClick={handleLogin}>ENTRAR</button>
 
-          <div className="divider">- OU -</div>
+            <div className="divider">- OU -</div>
 
-          <button className="btn-google">
+            <button className="btn-google">
+              <img
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                alt="Google"
+                className="google-icon"
+              />
+              Continue com Google
+            </button>
+
+            <p className="signup-link">
+              Não tem conta? <a href="/register">Cadastre-se</a>
+            </p>
+          </div>
+
+          <div className="login-info">
+            <h2>Espaço do(a) Doador(a)</h2>
+            <p>
+              Para uma melhor <span>experiência</span>,<br />
+              faça seu login ou Crie uma conta.
+            </p>
             <img
-              src="https://www.svgrepo.com/show/475656/google-color.svg"
-              alt="Google"
-              className="google-icon"
+              src={image1} alt="Doação" className="info-icon"
             />
-            Continue com Google
-          </button>
-
-          <p className="signup-link">
-            Não tem conta? <a href="/register">Cadastre-se</a>
-          </p>
-        </div>
-
-        <div className="login-info">
-          <h2>Espaço do(a) Doador(a)</h2>
-          <p>
-            Para uma melhor <span>experiência</span>,<br />
-            faça seu login ou Crie uma conta.
-          </p>
-          <img
-            src={image1} alt="Doação" className="info-icon"
-          />
+          </div>
         </div>
       </div>
     </div>

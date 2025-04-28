@@ -1,11 +1,23 @@
-/* src/styles/login.css */
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('../assets/background1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 90vh;
+    height: 100vh;
+    width: 70%;
     padding: 20px;
-    background-image: url('../assets/background-login.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
