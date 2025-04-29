@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../layout/Footer.css'; // caminho do CSS, ajuste se precisar
+import '../components/Footer.css';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaPaperPlane, FaChevronUp } from 'react-icons/fa';
 import logo from "../assets/logoBranca.png";
@@ -80,13 +80,6 @@ const Footer: React.FC = () => {
               <li><FaPhoneAlt /><span>(11) 3000-1234</span></li>
               <li><FaEnvelope /><span>contato@givelink.com</span></li>
             </ul>
-            <div className="footer-newsletter">
-              <h4>Newsletter</h4>
-              <form className="newsletter-form">
-                <input type="email" placeholder="Seu e-mail" required />
-                <button type="submit"><FaPaperPlane /></button>
-              </form>
-            </div>
           </div>
         </div>
       </div>

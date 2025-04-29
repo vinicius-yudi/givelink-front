@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // se estiver usando rotas
 import logo from "../assets/logoGivelink.png";
-import '../layout/Navbar.css'; // importa o CSS separado
+import '../components/Navbar.css'; // importa o CSS separado
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -62,7 +62,7 @@ const Navbar = () => {
 
           <div className="navbar-buttons">
             <Link to="/login" className="login-button">Entrar</Link>
-            <Link to="/cadastro" className="register-button">Cadastre-se</Link>
+            <Link to="/register" className="register-button">Cadastre-se</Link>
           </div>
         </div>
       </div>

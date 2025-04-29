@@ -1,0 +1,377 @@
+.home-container {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(to right, #2563eb, #1d4ed8);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px 80px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-buttons {
+      flex-direction: row;
+    }
+  }
+  
+  /* Impact Section */
+  .impact-section {
+    background: #ffffff;
+    padding: 80px 20px;
+  }
+  
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .impact-item h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2563eb;
+  }
+  
+  .impact-item p {
+    font-size: 1rem;
+    color: #4b5563;
+  }
+  
+  @media (min-width: 768px) {
+    .impact-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Featured Campaigns */
+  .featured-campaigns {
+    background: #f9fafb;
+    padding: 80px 20px;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+  }
+  
+  .section-header p {
+    color: #6b7280;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .campaigns-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  @media (min-width: 768px) {
+    .campaigns-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .campaigns-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .campaign-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .campaign-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  
+  .campaign-banner {
+    height: 180px;
+    background: #e0e7ff;
+  }
+  
+  .campaign-content {
+    padding: 24px;
+  }
+  
+  .campaign-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 12px;
+  }
+  
+  .campaign-content p {
+    color: #6b7280;
+    margin-bottom: 20px;
+  }
+  
+  .progress-bar-container {
+    margin-bottom: 20px;
+  }
+  
+  .progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .progress-value {
+    height: 100%;
+    background-color: #2563eb;
+  }
+  
+  /* How It Works */
+  .how-it-works {
+    background: #ffffff;
+    padding: 80px 20px;
+  }
+  
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .step h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 16px;
+  }
+  
+  .step p {
+    color: #6b7280;
+    font-size: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .steps-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Testimonials */
+  .testimonials {
+    background: #f3f4f6;
+    padding: 80px 20px;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  @media (min-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .testimonial-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  
+  .testimonial-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 12px;
+  }
+  
+  .testimonial-card p {
+    color: #6b7280;
+    font-size: 1rem;
+  }
+  
+  /* Call To Action */
+  .call-to-action {
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  
+  .call-to-action h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .call-to-action p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (min-width: 768px) {
+    .cta-buttons {
+      flex-direction: row;
+    }
+  }
+  
+  /* Newsletter */
+  .newsletter {
+    background: white;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .newsletter h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 16px;
+  }
+  
+  .newsletter p {
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0; /* Remove espaçamento entre input e botão */
+  }
+  
+  .newsletter-form input {
+    padding: 12px 20px;
+    background-color: #ffffff; /* Deixa o input branco */
+    color: #000000; /* Texto preto */
+    border: 1px solid #d1d5db;
+    border-radius: 8px 0 0 8px; /* Arredonda apenas o lado esquerdo */
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .newsletter-form button {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 12px 24px;
+    border: 1px solid #2563eb;
+    border-radius: 0 8px 8px 0; /* Arredonda apenas o lado direito */
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  
+  .newsletter-form button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  
+  /* Buttons */
+  .btn-primary {
+    background-color: #2563eb;
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .btn-secondary {
+    background-color: white;
+    color: #2563eb;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: 2px solid #2563eb;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .btn-outline:hover {
+    background-color: white;
+    color: #2563eb;
+  }
+  
