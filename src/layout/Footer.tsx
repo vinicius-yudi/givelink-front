@@ -93,11 +93,13 @@ const Footer: React.FC = () => {
 
       {/* Copyright */}
       <div className="footer-bottom">
-        <p>© 2025 GiveLink. Todos os direitos reservados.</p>
-        <div className="footer-bottom-links">
-          <Link to="/termos">Termos de Uso</Link>
-          <Link to="/privacidade">Privacidade</Link>
-          <Link to="/cookies">Cookies</Link>
+        <div className="footer-bottom-container">
+          <p>© 2025 GiveLink. Todos os direitos reservados.</p>
+          <div className="footer-bottom-links">
+            <Link to="/termos">Termos de Uso</Link>
+            <Link to="/privacidade">Política de Privacidade</Link>
+            <Link to="/cookies">Cookies</Link>
+          </div>
         </div>
       </div>
 

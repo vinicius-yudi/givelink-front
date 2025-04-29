@@ -115,20 +115,28 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid #1e40af;
+  border-top: 2px solid #1e3a8a;
   padding: 1.5rem 1rem;
-  text-align: center;
   font-size: 0.875rem;
-  color: #FFFFFF;
+  color: #ffffff;
+  background-color: #232150;
+}
+
+.footer-bottom-container {
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
+  padding: 0 1rem;
 }
 
 .footer-bottom-links {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .footer-bottom-links a {
