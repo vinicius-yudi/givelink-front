@@ -2,20 +2,28 @@
     font-family: 'Montserrat', sans-serif;
   }
   
-  /* Hero Section */
   .hero-section {
-    background: linear-gradient(to right, #2563eb, #1d4ed8);
-    background-size: cover;
-    background-position: center;
-    color: white;
+    background-image: url('../assets/heroSection.jpg');
+    background-size: cover;             
+    background-position: center center; 
+    background-repeat: no-repeat;        
+    background-attachment: scroll;       
+    min-height: 60vh;                    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 100px 20px 80px;
   }
   
+
+
   .hero-content h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+
   }
   
   .hero-content p {
@@ -24,12 +32,17 @@
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    color: #FFFFFF;
+    font-weight: bold;
+
+
+
   }
   
   .hero-buttons {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 15px;
     justify-content: center;
     align-items: center;
   }
@@ -127,9 +140,23 @@
   }
   
   .campaign-banner {
-    height: 180px;
-    background: #e0e7ff;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
   }
+
+  .banner-educacao {
+    background-image: url('../assets/card1.jpeg');
+  }
+
+  .banner-saude {
+    background-image: url('../assets/card2.jpeg');
+  }
+
+  .banner-alimento {
+    background-image: url('../assets/card3.jpeg');
+  }
+
   
   .campaign-content {
     padding: 24px;
@@ -156,6 +183,7 @@
     justify-content: space-between;
     font-size: 0.875rem;
     margin-bottom: 4px;
+    color: #000000;
   }
   
   .progress-bar {
@@ -204,7 +232,7 @@
   
   /* Testimonials */
   .testimonials {
-    background: #f3f4f6;
+    background: #b2caff;
     padding: 80px 20px;
   }
   
@@ -241,7 +269,11 @@
   
   /* Call To Action */
   .call-to-action {
-    background: #2563eb;
+    background-color: #2563eb;
+    background-size: cover;             
+    background-position: center center; 
+    background-repeat: no-repeat;        
+    background-attachment: scroll; 
     color: white;
     text-align: center;
     padding: 80px 20px;

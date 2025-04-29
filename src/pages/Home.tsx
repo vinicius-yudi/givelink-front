@@ -48,61 +48,62 @@ const Home: React.FC = () => {
         <div className="campaigns-grid">
             {/* Card 1 */}
             <div className="campaign-card">
-            <div className="campaign-banner"></div>
-            <div className="campaign-content">
+                <div className="campaign-banner banner-educacao"></div>
+                <div className="campaign-content">
                 <h3>Educação para Todos</h3>
                 <p>Ajude a construir uma biblioteca comunitária para crianças.</p>
                 <div className="progress-bar-container">
-                <div className="progress-text">
+                    <div className="progress-text">
                     <span>R$ 45.000</span>
                     <span>R$ 60.000</span>
-                </div>
-                <div className="progress-bar">
+                    </div>
+                    <div className="progress-bar">
                     <div className="progress-value" style={{ width: '75%' }}></div>
-                </div>
+                    </div>
                 </div>
                 <a href="/campanhas" className="btn-primary">Doar Agora</a>
-            </div>
+                </div>
             </div>
 
             {/* Card 2 */}
             <div className="campaign-card">
-            <div className="campaign-banner"></div>
-            <div className="campaign-content">
+                <div className="campaign-banner banner-saude"></div>
+                <div className="campaign-content">
                 <h3>Saúde para Comunidades</h3>
                 <p>Ajude a equipar postos médicos em áreas rurais.</p>
                 <div className="progress-bar-container">
-                <div className="progress-text">
+                    <div className="progress-text">
                     <span>R$ 28.500</span>
                     <span>R$ 50.000</span>
-                </div>
-                <div className="progress-bar">
+                    </div>
+                    <div className="progress-bar">
                     <div className="progress-value" style={{ width: '57%' }}></div>
-                </div>
+                    </div>
                 </div>
                 <a href="/campanhas" className="btn-primary">Doar Agora</a>
-            </div>
+                </div>
             </div>
 
             {/* Card 3 */}
             <div className="campaign-card">
-            <div className="campaign-banner"></div>
-            <div className="campaign-content">
+                <div className="campaign-banner banner-alimento"></div>
+                <div className="campaign-content">
                 <h3>Alimento Solidário</h3>
                 <p>Distribua cestas básicas a famílias carentes.</p>
                 <div className="progress-bar-container">
-                <div className="progress-text">
+                    <div className="progress-text">
                     <span>R$ 18.200</span>
                     <span>R$ 30.000</span>
-                </div>
-                <div className="progress-bar">
+                    </div>
+                    <div className="progress-bar">
                     <div className="progress-value" style={{ width: '61%' }}></div>
-                </div>
+                    </div>
                 </div>
                 <a href="/campanhas" className="btn-primary">Doar Agora</a>
-            </div>
+                </div>
             </div>
         </div>
+
 
         <div className="see-all-button">
             <a href="/campanhas" className="btn-secondary">Ver Todas as Campanhas</a>
@@ -113,7 +114,7 @@ const Home: React.FC = () => {
         <section className="how-it-works">
         <div className="section-header">
             <h2>Como Funciona</h2>
-            <p>Contribua em apenas três passos simples.</p>
+            <p>Fazer a diferença é simples. Veja como você pode contribuir em apenas três passos.</p>
         </div>
         <div className="steps-grid">
             <div className="step">
