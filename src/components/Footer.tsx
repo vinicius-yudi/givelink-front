@@ -53,9 +53,7 @@ const Footer: React.FC = () => {
             <ul className="footer-links">
               <li><Link to="/">Início</Link></li>
               <li><Link to="/sobre">Sobre</Link></li>
-              <li><Link to="/servicos">Serviços</Link></li>
               <li><Link to="/campanhas">Campanhas</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
               <li><Link to="/contato">Contato</Link></li>
             </ul>
           </div>
@@ -64,11 +62,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="footer-title">Nossos Serviços</h3>
             <ul className="footer-links">
-              <li><Link to="/desenvolvimento-web">Desenvolvimento Web</Link></li>
-              <li><Link to="/design-grafico">Design Gráfico</Link></li>
-              <li><Link to="/marketing-digital">Marketing Digital</Link></li>
-              <li><Link to="/consultoria">Consultoria</Link></li>
-              <li><Link to="/suporte">Suporte Técnico</Link></li>
+              <li><Link to="/desenvolvimento-web">Instituições</Link></li>
+              <li><Link to="/desenvolvimento-web">Painel do Doador</Link></li>
+              <li><Link to="/design-grafico">Dashboards</Link></li>
             </ul>
           </div>
 
@@ -76,8 +72,8 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="footer-title">Contato</h3>
             <ul className="footer-contact">
-              <li><FaMapMarkerAlt /><span>Av. Paulista, 1000<br />São Paulo, SP, 01310-100</span></li>
-              <li><FaPhoneAlt /><span>(11) 3000-1234</span></li>
+              <li><FaMapMarkerAlt /><span>R. Imac. Conceição, 1155<br />Curitiba, PR, 80215-901</span></li>
+              <li><FaPhoneAlt /><span>(41) 98846-4532</span></li>
               <li><FaEnvelope /><span>contato@givelink.com</span></li>
             </ul>
           </div>

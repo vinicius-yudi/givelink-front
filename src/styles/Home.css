@@ -202,7 +202,11 @@
   /* How It Works */
   .how-it-works {
     background: #ffffff;
-    padding: 80px 20px;
+    padding: 100px 20px 80px; /* padding-top aumentado para evitar sobreposição */
+    text-align: center;
+    position: relative;
+    z-index: 0; /* importante para não sobrepor a navbar */
+
   }
   
   .steps-grid {
@@ -221,8 +225,45 @@
   
   .step p {
     color: #6b7280;
-    font-size: 1rem;
+    font-size: 18px;
   }
+
+  /* Containers das imagens */
+.image-step1, .image-step2, .image-step3 {
+  position: relative;
+  padding-top: 80px; /* espaço para a imagem */
+}
+
+/* Imagens via background */
+.image-step1::before,
+.image-step2::before,
+.image-step3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Caminhos das imagens */
+.image-step1::before {
+  background-image: url('../assets/step1.png');
+}
+
+.image-step2::before {
+  background-image: url('../assets/step2.png');
+}
+
+.image-step3::before {
+  background-image: url('../assets/step3.png');
+}
+
+
   
   @media (min-width: 768px) {
     .steps-grid {
@@ -359,6 +400,12 @@
   .newsletter-form button:hover {
     background-color: #1d4ed8;
   }
+
+  .see-all-button {
+    display: flex;
+    justify-content: center;   /* centraliza horizontalmente */
+    margin-top: 60px;          /* espaçamento superior */
+  }
   
   
   /* Buttons */
@@ -377,18 +424,18 @@
   }
   
   .btn-secondary {
-    background-color: white;
-    color: #2563eb;
+    background-color: #2563eb;
+    color: #FFFFFF;
     font-weight: 600;
     padding: 12px 24px;
     border: 2px solid #2563eb;
-    border-radius: 9999px;
+    border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s;
   }
   
   .btn-secondary:hover {
-    background-color: #f3f4f6;
+    background-color: #1d4ed8;
   }
   
   .btn-outline {

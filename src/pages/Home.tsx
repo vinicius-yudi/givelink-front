@@ -106,7 +106,7 @@ const Home: React.FC = () => {
 
 
         <div className="see-all-button">
-            <a href="/campanhas" className="btn-secondary">Ver Todas as Campanhas</a>
+            <a href="/campanhas" className="btn-secondary">Todas as Campanhas</a>
         </div>
         </section>
 
@@ -117,17 +117,25 @@ const Home: React.FC = () => {
             <p>Fazer a diferença é simples. Veja como você pode contribuir em apenas três passos.</p>
         </div>
         <div className="steps-grid">
-            <div className="step">
-            <h3>1. Escolha uma Causa</h3>
-            <p>Encontre uma campanha que ressoe com seus valores.</p>
+            <div className='image-step1'>
+                <div className="step">
+                <h3>1. Escolha uma Causa</h3>
+                <p>Encontre uma campanha que ressoe com seus valores.</p>
+                </div>
             </div>
-            <div className="step">
-            <h3>2. Faça sua Doação</h3>
-            <p>Contribua com o valor que puder. Toda ajuda é importante.</p>
+
+            <div className='image-step2'>
+                <div className="step">
+                <h3>2. Faça sua Doação</h3>
+                <p>Contribua com o valor que puder. Toda ajuda é importante.</p>
+                </div>
             </div>
-            <div className="step">
-            <h3>3. Acompanhe o Impacto</h3>
-            <p>Veja como sua doação está transformando vidas.</p>
+
+            <div className='image-step3'>
+                <div className="step">
+                <h3>3. Acompanhe o Impacto</h3>
+                <p>Veja como sua doação está transformando vidas.</p>
+                </div>
             </div>
         </div>
         </section>
