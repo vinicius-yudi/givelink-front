@@ -17,8 +17,8 @@ A GiveLink é uma plataforma que intermedia e conecta doadores a instituições 
 * React Router DOM – gerenciamento de rotas SPA
 > npm install react-router-dom
 
-* Lucide React – biblioteca de ícones leves e modernos
-> npm install lucide-react
+* React icons – Biblioteca de ícones com suporte a vários pacotes (Font Awesome, Material, etc.)
+> npm install react-icons
 
 
 ### Configuração
