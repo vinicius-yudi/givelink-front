@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/Home" element={<Home />} /> {/* Redireciona para Login por padrão */}
+        <Route path="/" element={<Home />} /> {/* Redireciona para Login por padrão */}
 
       </Routes>
     </Router>
