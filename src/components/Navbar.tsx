@@ -1,14 +1,26 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // se estiver usando rotas
+import { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // se estiver usando rotas
 import logo from "../assets/logoGivelink.png";
 import '../components/Navbar.css'; // importa o CSS separado
+import { notExpiredTokenJwt } from '../utils/security';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Fecha o dropdown ao clicar fora
   useEffect(() => {
+    const savedToken = localStorage.getItem("access_token");
+
+    if(savedToken && notExpiredTokenJwt(savedToken)){
+      setIsAuthenticated(true);
+    }
+    else{
+      setIsAuthenticated(false);
+    }
+
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
@@ -17,6 +29,13 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("token_type");
+    setIsAuthenticated(false);
+    navigate("/");
+  }
 
   return (
     <header className="navbar-container">
@@ -61,8 +80,14 @@ const Navbar = () => {
           </nav>
 
           <div className="navbar-buttons">
-            <Link to="/login" className="login-button">Entrar</Link>
-            <Link to="/register" className="register-button">Cadastre-se</Link>
+            {!isAuthenticated ? (
+              <>
+                <Link to="/login" className="login-button">Entrar</Link>
+                <Link to="/register" className="register-button">Cadastre-se</Link>
+              </>
+            ) : (
+              <button onClick={handleLogout} className="logout-button">Logout</button>
+            )}
           </div>
         </div>
       </div>

@@ -1,51 +1,79 @@
 // src/pages/Login.tsx
-import "../styles/login.css";
+import "../styles/Login.css";
 import logo from "../assets/logoGivelink.png";
 import icon1 from "../assets/iconEmail.png";
 import image1 from "../assets/image1.png";
-import react, { useState } from "react";
-
-
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { validateTokenJwtRedirect } from "../utils/security";
 
 const Login = () => {
+    const navigate = useNavigate();
+    validateTokenJwtRedirect(navigate);
+
     const [showPassword, setShowPassword] = useState(false);
     const togglePassword = () => setShowPassword(!showPassword);
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
-    const [successMessage, setSuccessMessage] = useState("");
+    const [errors, setErrors] = useState<{ username?: string; password?: string }>({});
+    const [successMessage] = useState("");
 
-
-    const handleLogin = () => {
+    const handleLogin = async () => {
         const newErrors: typeof errors = {};
       
-        if (!email.trim()) {
-          newErrors.email = "O email é obrigatório.";
-        } else if (!/\S+@\S+\.\S+/.test(email)) {
-          newErrors.email = "Formato de email inválido.";
+        if (!username.trim()) {
+          newErrors.username = "O username é obrigatório.";
+        } 
+        else if (!/^[A-Za-z]{4,}/.test(username)) {
+          newErrors.username = "Formato de usuário inválido.";
         }
       
         if (!password.trim()) {
           newErrors.password = "A senha é obrigatória.";
-        } else if (password.length < 6) {
-          newErrors.password = "A senha deve ter no mínimo 6 caracteres.";
+        } else if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(password)) {
+          newErrors.password = "A senha deve ter no mínimo 8 caractes sendo 1 especial, 1 número e 1 maiúsculo.";
         }
       
         setErrors(newErrors);
       
         if (Object.keys(newErrors).length === 0) {
-          // Simulação de envio
-          setSuccessMessage("Login enviado com sucesso!");
-          setEmail("");
-          setPassword("");
-      
-          // Limpa a mensagem após alguns segundos
-          setTimeout(() => setSuccessMessage(""), 4000);
+          
+          try{
+            const formData = new URLSearchParams();
+            formData.append("username", username);
+            formData.append("password", password);
+            formData.append("grant_type", "password");
+
+            const response = await fetch(
+              'http://localhost:8000/auth/token',
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData.toString()
+              }
+            );
+
+            if(!response.ok){
+              throw new Error("Invalid login data.");
+            }
+
+            const data = await response.json();
+
+            localStorage.setItem("access_token", data.access_token);
+            localStorage.setItem("token_type", data.token_type); 
+            navigate("/");      
+          }
+          catch(error: any){
+            setErrors({
+              username: "Invalid login data.",
+              password: "Invalid login data."
+            })
+          }
         }
       };
       
-
   return (
     <div className="login-page">
       <div className="login-container">
@@ -55,15 +83,15 @@ const Login = () => {
 
               <div className="input-group">
                   <input 
-                  type="email" 
-                  placeholder="Email" 
+                  type="text" 
+                  placeholder="Usuário" 
                   className="input-underline" 
-                  value={email} 
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={username} 
+                  onChange={(e) => setUsername(e.target.value)}
                   />
-                  {errors.email && <span className="input-error">{errors.email}</span>}
+                  {errors.username && <span className="input-error">{errors.username}</span>}
                   <span className="input-icon">
-                      <img src={icon1} alt="Email" />
+                      <img src={icon1} alt="Usuário" />
                   </span>
                   </div>
 
@@ -125,7 +153,5 @@ const Login = () => {
     </div>
   );
 };
-
-
 
 export default Login;
