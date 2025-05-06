@@ -10,10 +10,7 @@ export function notExpiredTokenJwt(savedToken: string): boolean{
     const decoded = jwtDecode<JwtPayload>(savedToken);
     const now = Date.now() / 1000;
 
-    if(decoded.exp && decoded.exp > now){
-        return true;
-    }
-    return false;
+    return decoded.exp && decoded.exp > now ? true : false;
 }
 
 export function cleanInvalidTokenJwt(){

@@ -11,31 +11,68 @@ const Register = () => {
   const navigate = useNavigate();
   validateTokenJwtRedirect(navigate);
 
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errors, setErrors] = useState<{ name?: string; email?: string; password?: string }>({});
+  const [successMessage] = useState("");
+  const [errors, setErrors] = useState<{ username?: string; email?: string; password?: string }>({});
 
   const togglePassword = () => setShowPassword(!showPassword);
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     const newErrors: typeof errors = {};
-    if (!name.trim()) newErrors.name = "Nome é obrigatório.";
-    if (!email.trim()) newErrors.email = "Email é obrigatório.";
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Email inválido.";
-    if (!password.trim()) newErrors.password = "Senha é obrigatória.";
-    else if (password.length < 6) newErrors.password = "Mínimo 6 caracteres.";
+    if (!username.trim()) {
+      newErrors.username = "Usuário é obrigatório."
+    }
+    else if (!/^[A-Za-z]{4,}/.test(username)) {
+      newErrors.username = "Formato de usuário inválido.";
+    };
+    if (!email.trim()) {
+      newErrors.email = "Email é obrigatório.";
+    }
+    else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Email inválido.";
+    }
+    if (!password.trim()) {
+      newErrors.password = "Senha é obrigatória.";
+    }
+    else if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(password)) {
+      newErrors.password = "A senha deve ter no mínimo 8 caractes sendo 1 especial, 1 número e 1 maiúsculo.";
+    }
 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setSuccessMessage("Cadastro realizado com sucesso!");
-      setName("");
-      setEmail("");
-      setPassword("");
-      setTimeout(() => setSuccessMessage(""), 4000);
+      try{
+        const response = await fetch(
+          'http://localhost:8000/user',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              username: username,
+              email: email,
+              password: password
+            })
+          }
+        )
+
+        if(!response.ok){
+          throw new Error("Error on creating a new user.");
+        }
+
+        navigate("/login");
+      }
+      catch(error: any){
+        setErrors({
+          username: "Invalid username.",
+          password: "Invalid password.",
+          email: "Invalid email."
+        })
+      }
     }
   };
 
@@ -62,12 +99,12 @@ const Register = () => {
             <div className="input-group">
               <input
                 type="text"
-                placeholder="Nome Completo"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                placeholder="Usuário"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="input-underline"
               />
-              {errors.name && <span className="input-error">{errors.name}</span>}
+              {errors.username && <span className="input-error">{errors.username}</span>}
             </div>
 
             <div className="input-group">

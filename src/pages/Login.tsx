@@ -16,7 +16,7 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState<{ username?: string; password?: string }>({});
-    const [successMessage, setSuccessMessage] = useState("");
+    const [successMessage] = useState("");
 
     const handleLogin = async () => {
         const newErrors: typeof errors = {};
