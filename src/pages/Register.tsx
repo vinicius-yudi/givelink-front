@@ -1,11 +1,16 @@
 // src/pages/Register.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/Register.css";
 import iconEmail from "../assets/iconEmail.png";
 import iconEyeOpen from "../assets/iconPasswordOpen.png";
 import iconEyeClosed from "../assets/iconPasswordClose.png";
+import { useNavigate } from "react-router-dom";
+import { validateTokenJwtRedirect } from "../utils/security";
 
 const Register = () => {
+  const navigate = useNavigate();
+  validateTokenJwtRedirect(navigate);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

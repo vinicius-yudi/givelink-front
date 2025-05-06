@@ -3,38 +3,13 @@ import "../styles/Login.css";
 import logo from "../assets/logoGivelink.png";
 import icon1 from "../assets/iconEmail.png";
 import image1 from "../assets/image1.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
-
-interface JwtPayload {
-  exp: number
-}
+import { validateTokenJwtRedirect } from "../utils/security";
 
 const Login = () => {
     const navigate = useNavigate();
-
-    useEffect(
-      () => {
-        const savedToken = localStorage.getItem("access_token");
-        
-        if(savedToken){
-          try{
-            const decoded = jwtDecode<JwtPayload>(savedToken);
-            const now = Date.now() / 1000;
-
-            if(decoded.exp && decoded.exp > now){
-              navigate("/");
-            }
-          }
-          catch(error: any){
-            localStorage.removeItem("access_token");
-            localStorage.removeItem("token_type");
-          }
-        }
-      },
-      []
-    );
+    validateTokenJwtRedirect(navigate);
 
     const [showPassword, setShowPassword] = useState(false);
     const togglePassword = () => setShowPassword(!showPassword);
