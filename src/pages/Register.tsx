@@ -1,6 +1,6 @@
 // src/pages/Register.tsx
 import React, { useState } from "react";
-import "../styles/register.css";
+import "../styles/Register.css";
 import iconEmail from "../assets/iconEmail.png";
 import iconEyeOpen from "../assets/iconPasswordOpen.png";
 import iconEyeClosed from "../assets/iconPasswordClose.png";
