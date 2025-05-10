@@ -1,0 +1,95 @@
+.institution-card {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.institution-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.institution-card.clicked {
+  transform: scale(1.05); /* Mantém o zoom ao clicar */
+}
+
+.institution-card img {
+  width: 100%;
+  height: 100%;
+}
+
+.institution-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2); /* Fundo escuro com transparência */
+  color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.institution-card-content h3 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.institution-card-content p {
+  margin: 8px 0;
+  font-size: 16px;
+
+}
+
+.institution-card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+}
+
+.institution-card-tag {
+  background-color: rgba(37, 99, 235, 0.8); /* Azul com 80% de opacidade */
+  color: white;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.institution-card-tag:hover {
+  background-color: rgba(37, 99, 235, 1); /* Azul sólido ao passar o mouse */
+}
+
+.institution-card-buttons {
+  margin-top: 10px;
+  display: none; /* Esconde os botões por padrão */
+  gap: 10px;
+}
+
+.institution-card:hover .institution-card-buttons {
+  display: flex; /* Exibe os botões ao passar o mouse */
+}
+
+.institution-card-button {
+  background-color: rgba(37, 99, 235, 0.8); /* Azul com 80% de opacidade */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.institution-card-button:hover {
+  background-color: rgba(30, 64, 175, 1); /* Azul mais escuro sólido ao passar o mouse */
+}

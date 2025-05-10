@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // se estiver usando rotas
+import { Link, useNavigate } from 'react-router-dom';
 import logo from "../assets/logoGivelink.png";
-import '../components/Navbar.css'; // importa o CSS separado
+import '../components/Navbar.css';
 import { notExpiredTokenJwt } from '../utils/security';
 
 const Navbar = () => {
@@ -40,7 +40,6 @@ const Navbar = () => {
   return (
     <header className="navbar-container">
     <>
-      {/* Barra de cima */}
       <div className="navbar-top">
         <div className="navbar-inner">
           <div className="navbar-top-links">
@@ -63,12 +62,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {/* ... restante da navbar-main ... */}
     </>
       <div className="navbar-main">
         <div className="navbar-inner">
           <div className="navbar-logo">
-            <Link to="/Home">
+            <Link to="/">
               <img src={logo} alt="GiveLink" />
             </Link>
           </div>

@@ -1,61 +1,80 @@
-.institution-main {
-    display: flex;
-    padding: 2rem;
-    background-color: #f9fafb;
-    padding-top: 150px;
-  }
-  
-  .institution-content {
-    flex: 1;
-    margin-right: 2rem;
-  }
-  
-  
-  .search-register-bar {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-  }
-  
-  .search-input {
-    width: 70%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
-  
-  .register-button {
-    background-color: #2563eb;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .institution-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  
-  .institution-card {
-    background-color: #2563eb;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    height: 300px; /* aumenta a altura */
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .card-image {
-    background-color: #ddd;
-    height: 300px;
-  }
-  
-  .card-info {
-    padding: 1rem;
-  }
-  
+.institution-page {
+  display: flex;
+  flex-direction: column; /* Organiza os elementos em coluna */
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  background-color: #f9fafb;
+  min-height: 100vh; /* Garante que a página ocupe toda a altura da tela */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.institutions-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Máximo de 3 colunas */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; /* Limita a largura máxima */
+  justify-content: center; /* Centraliza os itens no grid */
+}
+
+.institutions-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-top: 150px; /* Adicione espaço suficiente abaixo da navbar */
+
+}
+
+.search-bar {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #2563eb;
+}
+
+.filter-dropdown {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.filter-dropdown:focus {
+  border-color: #2563eb;
+}
+
+.add-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #1e40af;
+}
+
+
+
+
+
+
