@@ -39,6 +39,8 @@
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s ease;
+  background-color: #FFFFFF;
+  color: black;
 }
 
 .search-bar:focus {
@@ -52,6 +54,10 @@
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s ease;
+  background-color: #FFFFFF;
+  color: black;
+
+
 }
 
 .filter-dropdown:focus {
@@ -60,7 +66,7 @@
 
 .add-button {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 15px;
   background-color: #2563eb;
   color: white;
   border: none;

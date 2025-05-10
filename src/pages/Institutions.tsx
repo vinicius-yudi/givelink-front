@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import InstitutionCard from '../components/InstitutionCard';
 import Navbar from '../components/Navbar';
@@ -53,7 +54,7 @@ const InstitutionsList = () => {
             <option value="Solidariedade">Solidariedade</option>
             <option value="Comunidade">Comunidade</option>
           </select>
-          <button className="add-button">Cadastrar Nova Instituição</button>
+          <Link to="/InstitutionRegister" className="add-button">Cadastrar Nova Instituição</Link>
         </div>
         <div className="institutions-list">
           {institutions.map((institution) => (
