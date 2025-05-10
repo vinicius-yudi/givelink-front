@@ -1,0 +1,86 @@
+.institution-page {
+  display: flex;
+  flex-direction: column; /* Organiza os elementos em coluna */
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  background-color: #f9fafb;
+  min-height: 100vh; /* Garante que a página ocupe toda a altura da tela */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.institutions-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Máximo de 3 colunas */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; /* Limita a largura máxima */
+  justify-content: center; /* Centraliza os itens no grid */
+}
+
+.institutions-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-top: 150px; /* Adicione espaço suficiente abaixo da navbar */
+
+}
+
+.search-bar {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: #FFFFFF;
+  color: black;
+}
+
+.search-bar:focus {
+  border-color: #2563eb;
+}
+
+.filter-dropdown {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: #FFFFFF;
+  color: black;
+
+
+}
+
+.filter-dropdown:focus {
+  border-color: #2563eb;
+}
+
+.add-button {
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #1e40af;
+}
+
+
+
+
+
+
