@@ -1,5 +1,6 @@
 import React from 'react';
 import '../components/InstitutionCard.css';
+import { Link } from 'react-router-dom';
 
 interface InstitutionCardProps {
   name: string;
@@ -23,7 +24,7 @@ const InstitutionCard: React.FC<InstitutionCardProps> = ({ name, description, ta
           ))}
         </div>
         <div className="institution-card-buttons">
-          <button className="institution-card-button">Doar</button>
+          <Link to="/Donation" className="institution-card-button">Doar</Link>
           <button className="institution-card-button">Saiba Mais</button>
         </div>
       </div>
