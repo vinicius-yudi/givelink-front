@@ -1,20 +1,21 @@
+/* Estilos gerais para desktops */
 .institution-page {
   display: flex;
-  flex-direction: column; /* Organiza os elementos em coluna */
-  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  flex-direction: column;
+  align-items: center;
   background-color: #f9fafb;
-  min-height: 100vh; /* Garante que a página ocupe toda a altura da tela */
+  min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
 }
 
 .institutions-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Máximo de 3 colunas */
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas para telas grandes */
   gap: 20px;
   width: 100%;
-  max-width: 1200px; /* Limita a largura máxima */
-  justify-content: center; /* Centraliza os itens no grid */
+  max-width: 1200px;
+  justify-content: center;
 }
 
 .institutions-controls {
@@ -27,8 +28,7 @@
   margin-bottom: 20px;
   padding: 0 20px;
   box-sizing: border-box;
-  margin-top: 150px; /* Adicione espaço suficiente abaixo da navbar */
-
+  margin-top: 150px;
 }
 
 .search-bar {
@@ -53,11 +53,8 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.3s ease;
   background-color: #FFFFFF;
   color: black;
-
-
 }
 
 .filter-dropdown:focus {
@@ -77,6 +74,58 @@
 
 .add-button:hover {
   background-color: #1e40af;
+}
+
+/* Estilos para tablets (largura máxima de 768px) */
+@media (max-width: 768px) {
+  .institutions-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
+    gap: 15px;
+  }
+
+  .institutions-controls {
+    flex-direction: column; /* Empilha os controles verticalmente */
+    gap: 15px;
+    margin-top: 250px;
+  }
+
+  .search-bar {
+    width: 100%; /* Barra de pesquisa ocupa toda a largura */
+  }
+
+  .filter-dropdown {
+    width: 100%; /* Dropdown ocupa toda a largura */
+  }
+
+  .add-button {
+    width: 100%; /* Botão ocupa toda a largura */
+  }
+}
+
+/* Estilos para dispositivos móveis (largura máxima de 480px) */
+@media (max-width: 480px) {
+  .institutions-list {
+    grid-template-columns: 1fr; /* 1 coluna para dispositivos móveis */
+    gap: 10px;
+  }
+
+  .institutions-controls {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 250px;
+
+  }
+
+  .search-bar,
+  .filter-dropdown,
+  .add-button {
+    width: 100%; /* Todos os controles ocupam toda a largura */
+  }
+
+  .add-button {
+    font-size: 14px; /* Ajusta o tamanho da fonte para telas menores */
+    padding: 8px 16px;
+  }
 }
 
 

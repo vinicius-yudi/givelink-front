@@ -1,7 +1,8 @@
 .institution-card {
   position: relative;
-  width: 500px;
-  height: 300px;
+  width: 100%; /* Ajusta a largura para ocupar o espaço disponível */
+  max-width: 600px; /* Aumenta o tamanho máximo do card */
+  height: 350px; /* Aumenta a altura do card */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -14,13 +15,10 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-.institution-card.clicked {
-  transform: scale(1.05); /* Mantém o zoom ao clicar */
-}
-
 .institution-card img {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Garante que a imagem se ajuste ao espaço */
 }
 
 .institution-card-content {
@@ -39,27 +37,25 @@
 
 .institution-card-content h3 {
   margin: 0;
-  font-size: 25px;
+  font-size: 25px; /* Ajusta o tamanho da fonte */
   font-weight: bold;
 }
 
 .institution-card-content p {
   margin: 8px 0;
-  font-size: 16px;
-
+  font-size: 15px; /* Ajusta o tamanho da fonte */
 }
 
 .institution-card-tags {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-
 }
 
 .institution-card-tag {
   background-color: rgba(37, 99, 235, 0.8); /* Azul com 80% de opacidade */
   color: white;
-  font-size: 13px;
+  font-size: 13px; /* Ajusta o tamanho da fonte */
   padding: 4px 8px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
@@ -85,11 +81,58 @@
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 14px; /* Ajusta o tamanho da fonte */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .institution-card-button:hover {
   background-color: rgba(30, 64, 175, 1); /* Azul mais escuro sólido ao passar o mouse */
+}
+
+/* Estilos para tablets (largura máxima de 768px) */
+@media (max-width: 768px) {
+  .institution-card {
+    max-width: 500px; /* Reduz o tamanho máximo do card para tablets */
+    height: 300px; /* Reduz a altura do card */
+  }
+
+  .institution-card-content h3 {
+    font-size: 18px; /* Reduz o tamanho da fonte */
+  }
+
+  .institution-card-content p {
+    font-size: 13px; /* Reduz o tamanho da fonte */
+  }
+
+  .institution-card-button {
+    font-size: 12px; /* Ajusta o tamanho da fonte dos botões */
+    padding: 6px 12px;
+  }
+}
+
+/* Estilos para dispositivos móveis (largura máxima de 480px) */
+@media (max-width: 480px) {
+  .institution-card {
+    max-width: 100%; /* O card ocupa toda a largura disponível */
+    height: 250px; /* Reduz ainda mais a altura do card */
+  }
+
+  .institution-card-content h3 {
+    font-size: 20px; /* Ajusta o tamanho da fonte */
+  }
+
+  .institution-card-content p {
+    font-size: 15px; /* Ajusta o tamanho da fonte */
+  }
+
+  .institution-card-tag {
+    font-size: 13px; /* Ajusta o tamanho da fonte das tags */
+    padding: 3px 6px;
+  }
+
+  .institution-card-button {
+    font-size: 15px; /* Ajusta o tamanho da fonte dos botões */
+    padding: 5px 10px;
+  }
 }
