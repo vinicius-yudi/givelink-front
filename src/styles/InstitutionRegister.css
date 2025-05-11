@@ -1,0 +1,121 @@
+.institution-register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../assets/background2.jpg') no-repeat center center fixed;
+  background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+  font-family: 'Arial', sans-serif;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 50px;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: black;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: #FFFFFF;
+  color: black;
+}
+
+input:focus,
+select:focus {
+  border-color: #2563eb;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 14px;
+  font-size: 15px;
+  background: #2563eb;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #1e40af;
+}
+
+/* Responsividade para tablets (largura máxima de 768px) */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 30px;
+    max-width: 400px; /* Reduz o tamanho máximo do formulário */
+  }
+
+  h1 {
+    font-size: 24px; /* Reduz o tamanho do título */
+  }
+
+  input,
+  select {
+    font-size: 13px; /* Ajusta o tamanho da fonte */
+    padding: 8px;
+  }
+
+  .submit-button {
+    font-size: 14px; /* Ajusta o tamanho do botão */
+    padding: 12px;
+  }
+}
+
+/* Responsividade para dispositivos móveis (largura máxima de 480px) */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 20px;
+    max-width: 100%; /* O formulário ocupa toda a largura disponível */
+  }
+
+  h1 {
+    font-size: 20px; /* Ajusta o tamanho do título */
+  }
+
+  input,
+  select {
+    font-size: 12px; /* Ajusta o tamanho da fonte */
+    padding: 6px;
+  }
+
+  .submit-button {
+    font-size: 12px; /* Ajusta o tamanho do botão */
+    padding: 10px;
+  }
+}
+
