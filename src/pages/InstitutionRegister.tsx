@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import '../styles/InstitutionRegister.css';
 import Navbar from '../components/Navbar';
+import { validateTokenJwtRedirect } from '../utils/security';
+import { useNavigate } from 'react-router-dom';
 
 const InstitutionRegister = () => {
+  const navigate = useNavigate();
+  validateTokenJwtRedirect(navigate, "/InstitutionRegister", "/Login");
+
   const [formData, setFormData] = useState({
     name: '',
     sector: '',
     cnpj: '',
+    avatar_url: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -14,9 +20,36 @@ const InstitutionRegister = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+    try{
+      const token = localStorage.getItem("access_token");
+      const response = await fetch(
+        'http://localhost:8000/institution',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            sector: formData.sector,
+            cnpj: formData.cnpj,
+            avatar_url: formData.avatar_url
+          })
+        }
+      );
+
+      if(!response.ok){
+          throw new Error("Error on creating a new institution.");
+      }
+
+      navigate("/Institutions");
+    }
+    catch(error: any){
+      console.log("Error on creating institution.");
+    }
   };
 
   return (
@@ -62,6 +95,18 @@ const InstitutionRegister = () => {
                 name="cnpj"
                 placeholder="Digite o CNPJ (somente números)"
                 value={formData.cnpj}
+                onChange={handleChange}
+                required
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="avatar_url">URL da imagem</label>
+                <input
+                type="text"
+                id="avatar_url"
+                name="avatar_url"
+                placeholder="Insira a URL da imagem"
+                value={formData.avatar_url}
                 onChange={handleChange}
                 required
                 />

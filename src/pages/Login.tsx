@@ -9,7 +9,7 @@ import { validateTokenJwtRedirect } from "../utils/security";
 
 const Login = () => {
     const navigate = useNavigate();
-    validateTokenJwtRedirect(navigate);
+    validateTokenJwtRedirect(navigate, "/", "/Login");
 
     const [showPassword, setShowPassword] = useState(false);
     const togglePassword = () => setShowPassword(!showPassword);

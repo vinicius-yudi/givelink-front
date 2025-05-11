@@ -4,18 +4,16 @@ import { Link } from 'react-router-dom';
 
 interface InstitutionCardProps {
   name: string;
-  description: string;
   tags: string[];
   imageUrl: string;
 }
 
-const InstitutionCard: React.FC<InstitutionCardProps> = ({ name, description, tags, imageUrl }) => {
+const InstitutionCard: React.FC<InstitutionCardProps> = ({ name, tags, imageUrl }) => {
   return (
     <div className="institution-card">
       <img src={imageUrl} alt={name} />
       <div className="institution-card-content">
         <h3>{name}</h3>
-        <p>{description}</p>
         <div className="institution-card-tags">
           {tags.map((tag, index) => (
             <span key={index} className="institution-card-tag">

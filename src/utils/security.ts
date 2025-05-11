@@ -18,19 +18,24 @@ export function cleanInvalidTokenJwt(){
     localStorage.removeItem("token_type");
 }
 
-export function validateTokenJwtRedirect(navigate: NavigateFunction){
+export function validateTokenJwtRedirect(
+    navigate: NavigateFunction, 
+    url: string,
+    authUrl: string
+){
     useEffect(
         () => {
             const savedToken = localStorage.getItem("access_token");
         
             if(savedToken){
                 try{ 
-                    if(notExpiredTokenJwt(savedToken)) navigate("/"); 
+                    if(notExpiredTokenJwt(savedToken)) navigate(url); 
                 }
                 catch(error: any){ 
-                    cleanInvalidTokenJwt(); 
+                    cleanInvalidTokenJwt();
                 }
             }
+            else navigate(authUrl);
         },
         []
     );
