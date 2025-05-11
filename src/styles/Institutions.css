@@ -20,16 +20,15 @@
 
 .institutions-controls {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 20px;
   width: 100%;
   max-width: 1200px;
-  margin-bottom: 20px;
+  margin: 150px auto 20px; /* centraliza horizontalmente */
   padding: 0 20px;
   box-sizing: border-box;
-  margin-top: 150px;
 }
+
 
 .search-bar {
   flex: 1;
@@ -37,10 +36,6 @@
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  outline: none;
-  transition: border-color 0.3s ease;
-  background-color: #FFFFFF;
-  color: black;
 }
 
 .search-bar:focus {
@@ -48,30 +43,28 @@
 }
 
 .filter-dropdown {
+  width: 200px; /* ou 250px se preferir maior */
   padding: 10px 15px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  outline: none;
-  background-color: #FFFFFF;
-  color: black;
 }
-
 .filter-dropdown:focus {
   border-color: #2563eb;
 }
 
 .add-button {
-  padding: 10px 20px;
-  font-size: 15px;
+  width: 220px;
+  text-align: center;
+  padding: 10px 15px;
   background-color: #2563eb;
   color: white;
-  border: none;
+  font-size: 16px;
+  text-decoration: none;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+  font-weight: bold;
 }
-
 .add-button:hover {
   background-color: #1e40af;
 }
