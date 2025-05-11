@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/InstitutionRegister.css';
 import Navbar from '../components/Navbar';
+import { validateTokenJwtRedirect } from '../utils/security';
+import { useNavigate } from 'react-router-dom';
 
 const InstitutionRegister = () => {
+  const navigate = useNavigate();
+  validateTokenJwtRedirect(navigate, "/InstitutionRegister");
+
   const [formData, setFormData] = useState({
     name: '',
     sector: '',
@@ -14,9 +19,35 @@ const InstitutionRegister = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+    try{
+      const token = localStorage.getItem("access_token");
+      const response = await fetch(
+        'http://localhost:8000/institution',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            sector: formData.sector,
+            cnpj: formData.cnpj
+          })
+        }
+      );
+
+      if(!response.ok){
+          throw new Error("Error on creating a new institution.");
+      }
+
+      navigate("/Institutions");
+    }
+    catch(error: any){
+      console.log("Error on creating institution.");
+    }
   };
 
   return (
