@@ -6,12 +6,13 @@ import { useNavigate } from 'react-router-dom';
 
 const InstitutionRegister = () => {
   const navigate = useNavigate();
-  validateTokenJwtRedirect(navigate, "/InstitutionRegister");
+  validateTokenJwtRedirect(navigate, "/InstitutionRegister", "/Login");
 
   const [formData, setFormData] = useState({
     name: '',
     sector: '',
     cnpj: '',
+    avatar_url: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -34,7 +35,8 @@ const InstitutionRegister = () => {
           body: JSON.stringify({
             name: formData.name,
             sector: formData.sector,
-            cnpj: formData.cnpj
+            cnpj: formData.cnpj,
+            avatar_url: formData.avatar_url
           })
         }
       );
@@ -93,6 +95,18 @@ const InstitutionRegister = () => {
                 name="cnpj"
                 placeholder="Digite o CNPJ (somente números)"
                 value={formData.cnpj}
+                onChange={handleChange}
+                required
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="avatar_url">URL da imagem</label>
+                <input
+                type="text"
+                id="avatar_url"
+                name="avatar_url"
+                placeholder="Insira a URL da imagem"
+                value={formData.avatar_url}
                 onChange={handleChange}
                 required
                 />
