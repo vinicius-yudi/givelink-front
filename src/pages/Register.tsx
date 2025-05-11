@@ -9,7 +9,7 @@ import { validateTokenJwtRedirect } from "../utils/security";
 
 const Register = () => {
   const navigate = useNavigate();
-  validateTokenJwtRedirect(navigate);
+  validateTokenJwtRedirect(navigate, "/");
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
