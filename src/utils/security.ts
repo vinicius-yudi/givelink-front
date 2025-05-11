@@ -20,6 +20,7 @@ export function cleanInvalidTokenJwt(){
 
 export function validateTokenJwtRedirect(
     navigate: NavigateFunction, 
+    url: string,
     authUrl: string
 ){
     useEffect(
@@ -28,13 +29,13 @@ export function validateTokenJwtRedirect(
         
             if(savedToken){
                 try{ 
-                    if(notExpiredTokenJwt(savedToken)) navigate(authUrl); 
+                    if(notExpiredTokenJwt(savedToken)) navigate(url); 
                 }
                 catch(error: any){ 
                     cleanInvalidTokenJwt();
                 }
             }
-            else navigate("/login");
+            else navigate(authUrl);
         },
         []
     );
