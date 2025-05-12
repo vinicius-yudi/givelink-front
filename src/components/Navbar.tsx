@@ -74,7 +74,7 @@ const Navbar = () => {
           <nav className="navbar-links">
             <Link to="/Campaigns">Campanhas</Link>
             <Link to="../Institutions">Instituições</Link>
-            <Link to="/contato">Contato</Link>
+            <Link to="/Contact">Contato</Link>
           </nav>
 
           <div className="navbar-buttons">

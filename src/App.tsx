@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Institutions from "./pages/Institutions"
 import InstitutionRegister from "./pages/InstitutionRegister";
 import Campaings from "./pages/Campaings";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Institutions" element={<Institutions />} />
         <Route path="/Campaigns" element={<Campaings />} />
+        <Route path="/Contact" element={<Contact />} />
         <Route path="/InstitutionRegister" element={<InstitutionRegister />} /> {/* Substitua pelo componente correto */}
         <Route path="/" element={<Home />} /> {/* Redireciona para Login por padrão */}
 
