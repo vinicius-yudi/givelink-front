@@ -1,9 +1,17 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import CountUp from 'react-countup';
 import '../styles/Home.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Home: React.FC = () => {
+    useEffect(() => {
+        AOS.init({ duration: 1500, once: true });
+      }, []);
+    
   return (
     <>
       <Navbar />
@@ -25,27 +33,28 @@ const Home: React.FC = () => {
         <section className="impact-section">
         <div className="impact-grid">
             <div className="impact-item">
-            <h3>12.500+</h3>
+            <h3><CountUp start={9000} end={12500} duration={3.5} separator="." />+</h3>
             <p>Pessoas Ajudadas</p>
             </div>
             <div className="impact-item">
-            <h3>R$ 1.2M</h3>
+            <h3>R$ <CountUp start={1000000} end={1200000} duration={3.5} prefix="" separator="." decimal="," decimals={0} /></h3>
             <p>Doações Arrecadadas</p>
             </div>
             <div className="impact-item">
-            <h3>85+</h3>
+            <h3><CountUp start={0} end={85} duration={3.5} />+</h3>
             <p>Projetos Realizados</p>
             </div>
         </div>
         </section>
 
+
         {/* Campanhas em Destaque */}
         <section className="featured-campaigns">
-        <div className="section-header">
+        <div className="section-header"  data-aos="fade-up" >
             <h2>Campanhas em Destaque</h2>
             <p>Conheça algumas campanhas que estão mudando vidas.</p>
         </div>
-        <div className="campaigns-grid">
+        <div className="campaigns-grid" data-aos="fade-up">
             {/* Card 1 */}
             <div className="campaign-card">
                 <div className="campaign-banner banner-educacao"></div>
@@ -112,11 +121,11 @@ const Home: React.FC = () => {
 
         {/* Como Funciona */}
         <section className="how-it-works">
-        <div className="section-header">
+        <div className="section-header" data-aos="fade-up">
             <h2>Como Funciona</h2>
             <p>Fazer a diferença é simples. Veja como você pode contribuir em apenas três passos.</p>
         </div>
-        <div className="steps-grid">
+        <div className="steps-grid" data-aos="fade-up">
             <div className='image-step1'>
                 <div className="step">
                 <h3>1. Escolha uma Causa</h3>
@@ -142,11 +151,11 @@ const Home: React.FC = () => {
 
         {/* Depoimentos */}
         <section className="testimonials">
-        <div className="section-header">
+        <div className="section-header" data-aos="fade-up">
             <h2>O Que Dizem Sobre Nós</h2>
             <p>Conheça histórias reais de transformação.</p>
         </div>
-        <div className="testimonials-grid">
+        <div className="testimonials-grid" data-aos="fade-up">
             <div className="testimonial-card">
             <h4>Maria Silva</h4>
             <p>"Minha doação realmente chegou a quem precisava. Gratidão à GiveLink!"</p>
