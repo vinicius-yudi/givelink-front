@@ -2,23 +2,25 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import Institutions from "./pages/Institutions"
+import Institutions from "./pages/Institutions";
 import InstitutionRegister from "./pages/InstitutionRegister";
 import Campaings from "./pages/Campaings";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
+      
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/Institutions" element={<Institutions />} />
-        <Route path="/Campaigns" element={<Campaings />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/InstitutionRegister" element={<InstitutionRegister />} /> {/* Substitua pelo componente correto */}
-        <Route path="/" element={<Home />} /> {/* Redireciona para Login por padrão */}
-
+        <Route path="/register" element={<Register />} />
+        <Route path="/institutions" element={<Institutions />} />
+        <Route path="/campaigns" element={<Campaings />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/institutionregister" element={<InstitutionRegister />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
