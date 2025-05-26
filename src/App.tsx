@@ -7,6 +7,7 @@ import InstitutionRegister from "./pages/InstitutionRegister";
 import Campaings from "./pages/Campaings";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import Donation from "./pages/Donation"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <ScrollToTop />
       
       <Routes>
+        <Route path="/donation" element={<Donation />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/institutions" element={<Institutions />} />
