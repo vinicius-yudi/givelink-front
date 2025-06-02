@@ -1,0 +1,340 @@
+/* Estilos gerais */
+.donation-page {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #eff6ff, #faf5ff);
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  margin-top: 100px;
+}
+
+.donation-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.donation-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout responsivo */
+@media (min-width: 768px) {
+  .donation-container {
+    flex-direction: row;
+  }
+}
+
+/* Seção de impacto visual */
+.impact-visualization {
+  width: 100%;
+  padding: 2rem;
+  background-color: #2563eb;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .impact-visualization {
+    width: 40%;
+  }
+}
+
+.impact-content {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.impact-content h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.progress-section {
+  margin-bottom: 2rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-container {
+  height: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: white;
+  border-radius: 9999px;
+  transition: width 1.5s ease-in-out;
+}
+
+.progress-text {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: white;
+}
+
+
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+
+
+/* Seção do formulário */
+.donation-form {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .donation-form {
+    width: 60%;
+  }
+}
+
+.donation-form h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.form-section {
+  margin-bottom: 1.5rem;
+}
+
+.form-section label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.donation-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .donation-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.donation-option {
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.donation-option:hover {
+  transform: translateY(-5px);
+}
+
+.donation-option.active {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+
+
+@media (min-width: 768px) {
+  .custom-amount {
+    grid-column: span 3;
+  }
+}
+
+.option-amount {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.option-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+
+
+
+input{
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+
+}
+
+
+.donate-button {
+  width: 100%;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.donate-button:hover {
+  opacity: 0.9;
+}
+
+.security-info {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.security-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.payment-option {
+  flex: 1;
+  background: #f3f4f6;
+  border: 2px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.payment-option.active,
+.payment-option:hover {
+  border-color: #2563eb;
+  background: #e0e7ff;
+}
+
+.payment-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
+}
+
+.payment-option span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 500px) {
+  .container {
+    padding: 0.5rem 0.2rem;
+    margin-top: 210px;
+  }
+  .donation-card {
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 16px -4px rgba(0,0,0,0.08);
+  }
+  .impact-visualization,
+  .donation-form {
+    padding: 1rem;
+  }
+  .impact-content h2,
+  .donation-form h1 {
+    font-size: 1.2rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .progress-header span,
+  .progress-text {
+    font-size: 0.9rem;
+  }
+  .form-section label {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .donation-options {
+    grid-template-columns: 1fr; /* Stack options vertically */
+    gap: 0.5rem;
+  }
+  .donation-option {
+    padding: 0.75rem 0.5rem;
+  }
+  .option-amount {
+    font-size: 1rem;
+  }
+  .option-description {
+    font-size: 0.8rem;
+  }
+  .custom-amount {
+    grid-column: span 1; /* Ensure custom amount takes full width on small screens */
+  }
+  input[type="text"] {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+  }
+  .payment-methods {
+    flex-direction: column; /* Stack payment methods */
+    gap: 0.75rem;
+  }
+  .payment-option {
+    flex-direction: row; /* Arrange icon and text horizontally */
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.75rem;
+    min-width: unset; /* Remove min-width to allow full flexibility */
+  }
+  .payment-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0;
+    margin-right: 0.75rem;
+  }
+  .payment-option span {
+    font-size: 1rem;
+  }
+  .donate-button {
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+  }
+  .security-info {
+    font-size: 0.8rem;
+  }
+}
