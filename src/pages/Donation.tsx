@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import '../styles/Donation.css';
 import Navbar from '../components/Navbar';
+import Pix from '../assets/pix.png';
+import CreditCard from '../assets/cartaoDeCredito.png';
 
 const DonationPage = () => {
   const [selectedAmount, setSelectedAmount] = useState(30);
-  const [customAmount, setCustomAmount] = useState('');
-  const [frequency, setFrequency] = useState('once');
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    phone: '',
+    cpfCnpj: '',
     updates: false
   });
+  const [paymentMethod, setPaymentMethod] = useState('pix');
 
   const donationOptions = [
     { value: 30, label: 'R$ 30', description: 'Doação básica' },
@@ -19,26 +19,13 @@ const DonationPage = () => {
     { value: 100, label: 'R$ 100', description: 'Doação premium' }
   ];
 
-  const impactItems = [
-    { emoji: '🍽️', amount: 'R$ 30', description: 'Alimenta uma família por um dia' },
-    { emoji: '📚', amount: 'R$ 50', description: 'Kit escolar para uma criança' },
-    { emoji: '💊', amount: 'R$ 100', description: 'Medicamentos para idosos' }
-  ];
 
   const handleAmountSelect = (amount: number) => {
     setSelectedAmount(amount);
-    setCustomAmount('');
   };
 
-  const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setCustomAmount(value);
-    if (value) {
-      setSelectedAmount(parseInt(value));
-    }
-  };
 
-  // Função que estava faltando
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
@@ -50,23 +37,20 @@ const DonationPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.phone || selectedAmount <= 0) {
+    if (!formData.name || selectedAmount <= 0) {
       alert('Por favor, preencha todos os campos obrigatórios.');
       return;
     }
     
-    alert(`Obrigado ${formData.name}! Sua doação de R$ ${selectedAmount} foi processada com sucesso. Um comprovante foi enviado para ${formData.email}.`);
+    alert(`Obrigado ${formData.name}! Sua doação de R$ ${selectedAmount} foi processada com sucesso.`);
     
     // Reset form
     setFormData({
       name: '',
-      email: '',
-      phone: '',
+      cpfCnpj: '',
       updates: false
     });
     setSelectedAmount(30);
-    setCustomAmount('');
-    setFrequency('once');
   };
 
   const progressPercentage = Math.min((25000 + selectedAmount) / 50000 * 100, 100);
@@ -94,27 +78,12 @@ const DonationPage = () => {
                         ></div>
                     </div>
                     <div className="progress-text">
-                        <span>R$ {(25000 + selectedAmount).toLocaleString('pt-BR')}</span> arrecadados
+                        <span>R$ {(25000 + selectedAmount).toLocaleString('pt-BR')}</span> Arrecadados
                     </div>
                     </div>
                     
-                    <div className="impact-list">
-                    <h3>O que sua doação proporciona:</h3>
-                    {impactItems.map((item, index) => (
-                        <div key={index} className="impact-item">
-                        <div className="impact-emoji">{item.emoji}</div>
-                        <div className="impact-details">
-                            <p className="impact-amount">{item.amount}</p>
-                            <p className="impact-description">{item.description}</p>
-                        </div>
-                        </div>
-                    ))}
-                    </div>
-                    
-                    <div className="thank-you">
-                    <div className="heart">❤️</div>
-                    <p>Obrigado por fazer a diferença!</p>
-                    </div>
+            
+
                 </div>
                 </div>
                 
@@ -130,62 +99,41 @@ const DonationPage = () => {
                         {donationOptions.map((option, index) => (
                         <div 
                             key={index}
-                            className={`donation-option ${selectedAmount === option.value && !customAmount ? 'active' : ''}`}
+                            className={`donation-option ${selectedAmount === option.value ? 'active' : ''}`}
                             onClick={() => handleAmountSelect(option.value)}
                         >
                             <p className="option-amount">{option.label}</p>
                             <p className="option-description">{option.description}</p>
                         </div>
                         ))}
-                        <div 
-                        className={`donation-option custom-amount ${customAmount ? 'active' : ''}`}
-                        >
-                        <p className="option-amount">Outro valor</p>
-                        <input
-                            type="number"
-                            value={customAmount}
-                            onChange={handleCustomAmountChange}
-                            placeholder="R$ 0,00"
-                            min="1"
-                        />
-                        </div>
-                    </div>
+                      </div>
                     </div>
                     
                     <div className="form-section">
-                    <label>Frequência</label>
-                    <div className="frequency-options">
-                        <label>
-                        <input
-                            type="radio"
-                            name="frequency"
-                            value="once"
-                            checked={frequency === 'once'}
-                            onChange={() => setFrequency('once')}
-                        />
-                        <span>Única</span>
-                        </label>
-                        <label>
-                        <input
-                            type="radio"
-                            name="frequency"
-                            value="monthly"
-                            checked={frequency === 'monthly'}
-                            onChange={() => setFrequency('monthly')}
-                        />
-                        <span>Mensal</span>
-                        </label>
-                        <label>
-                        <input
-                            type="radio"
-                            name="frequency"
-                            value="yearly"
-                            checked={frequency === 'yearly'}
-                            onChange={() => setFrequency('yearly')}
-                        />
-                        <span>Anual</span>
-                        </label>
-                    </div>
+                      <label>Método de pagamento</label>
+                      <div className="payment-methods">
+                        <div 
+                          className={`payment-option ${paymentMethod === 'pix' ? 'active' : ''}`}
+                          onClick={() => setPaymentMethod('pix')}
+                        >
+                          <img src={Pix} alt="Pix" className="payment-icon" />
+                          <span>Pix</span>
+                        </div>
+                        <div 
+                          className={`payment-option ${paymentMethod === 'credit' ? 'active' : ''}`}
+                          onClick={() => setPaymentMethod('credit')}
+                        >
+                          <img src={CreditCard} alt="Cartão de Crédito" className="payment-icon" />
+                          <span>Crédito</span>
+                        </div>
+                        <div 
+                          className={`payment-option ${paymentMethod === 'debit' ? 'active' : ''}`}
+                          onClick={() => setPaymentMethod('debit')}
+                        >
+                          <img src={CreditCard} alt="Cartão de Débito" className="payment-icon" />
+                          <span>Débito</span>
+                        </div>
+                      </div>
                     </div>
                     
                     <div className="form-section">
@@ -200,44 +148,22 @@ const DonationPage = () => {
                         required
                     />
                     </div>
-                    
+
                     <div className="form-section">
-                    <label htmlFor="email">E-mail</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
+                      <label htmlFor="cpfCnpj">CPF ou CNPJ</label>
+                      <input
+                        type="text"
+                        id="cpfCnpj"
+                        name="cpfCnpj"
+                        value={formData.cpfCnpj || ''}
                         onChange={handleInputChange}
-                        placeholder="seu@email.com"
+                        placeholder="Digite seu CPF ou CNPJ"
                         required
-                    />
+                      />
                     </div>
+                  
                     
-                    <div className="form-section">
-                    <label htmlFor="phone">Telefone</label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="(00) 00000-0000"
-                        required
-                    />
-                    </div>
                     
-                    <div className="form-section checkbox-section">
-                    <label>
-                        <input
-                        type="checkbox"
-                        name="updates"
-                        checked={formData.updates}
-                        onChange={handleInputChange}
-                        />
-                        <span>Quero receber atualizações sobre o impacto da minha doação e novidades sobre os projetos</span>
-                    </label>
-                    </div>
                     
                     <button type="submit" className="donate-button">
                     Doar agora
