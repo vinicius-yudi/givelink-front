@@ -1,0 +1,91 @@
+.donors-register-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/background2.jpg') no-repeat center center fixed;
+}
+
+.form-container {
+  background: #fff;
+  padding: 50px;
+  padding-right: 70px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2d3a4a;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2d3a4a;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: border 0.2s;
+}
+
+.form-group input:focus {
+  border: 1.5px solid #4f8cff;
+  outline: none;
+  background: #fff;
+}
+
+.submit-button {
+  width: 430px;
+  padding: 1rem 0;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+
+.submit-button:hover {
+  background: #1e40af;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+  .donors-register-page {
+    padding: 20px;
+    background-size: cover;
+    margin-top: 100px;
+  }
+
+  .form-container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .submit-button {
+    width: 300px;
+    font-size: 1rem;
+    padding: 0.9rem 0;
+  }
+}

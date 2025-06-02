@@ -8,6 +8,7 @@ import Campaings from "./pages/Campaings";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import Donation from "./pages/Donation"
+import Donors from "./pages/Donors";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
         <Route path="/campaigns" element={<Campaings />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/institutionregister" element={<InstitutionRegister />} />
+        <Route path="/donors" element={<Donors />} />
+        
+        {/* Redirect old paths to new ones */}
+        {/* Redirect root path to home */}
         <Route path="/" element={<Home />} />
       </Routes>
     </Router>
