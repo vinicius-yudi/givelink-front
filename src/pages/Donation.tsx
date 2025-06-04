@@ -3,13 +3,28 @@ import '../styles/Donation.css';
 import Navbar from '../components/Navbar';
 import Pix from '../assets/pix.png';
 import CreditCard from '../assets/cartaoDeCredito.png';
+import { useNavigate } from 'react-router-dom';
+import { validateTokenJwtRedirect } from '../utils/security';
+
+interface Donor {
+  id: number;
+  name: string;
+  avatar_url: string;
+  cpf_cnpj: string;
+  username: string;
+}
 
 const DonationPage = () => {
+  const navigate = useNavigate();
+  validateTokenJwtRedirect(navigate, "/Donation", "/Login");
+
   const [selectedAmount, setSelectedAmount] = useState(30);
   const [formData, setFormData] = useState({
     name: '',
-    cpfCnpj: '',
-    updates: false
+    cpf_cnpj: '',
+    updates: false,
+    amount: 0,
+    payment_method: ''
   });
   const [paymentMethod, setPaymentMethod] = useState('pix');
 
@@ -19,12 +34,9 @@ const DonationPage = () => {
     { value: 100, label: 'R$ 100', description: 'Doação premium' }
   ];
 
-
   const handleAmountSelect = (amount: number) => {
     setSelectedAmount(amount);
   };
-
-
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -34,23 +46,70 @@ const DonationPage = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!formData.name || selectedAmount <= 0) {
       alert('Por favor, preencha todos os campos obrigatórios.');
       return;
     }
-    
-    alert(`Obrigado ${formData.name}! Sua doação de R$ ${selectedAmount} foi processada com sucesso.`);
-    
-    // Reset form
-    setFormData({
-      name: '',
-      cpfCnpj: '',
-      updates: false
-    });
-    setSelectedAmount(30);
+
+    try{
+      const token = localStorage.getItem("access_token");
+
+      const donors = await fetch(
+        'http://localhost:8000/donor/list/me',
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          }
+        }
+      );
+
+      if(!donors.ok){
+          throw new Error("Error on fetching donors.");
+      }
+
+      const data: {donors: Donor[]} = await donors.json();
+      const donor = data.donors.find(
+        (d) => d.cpf_cnpj === formData.cpf_cnpj
+      );
+
+      if(!donor){
+        throw new Error("Donor not found.");
+      }
+
+      const response = await fetch(
+        'http://localhost:8000/donation',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            amount: selectedAmount,
+            payment_method: paymentMethod,
+            institution_id: localStorage.getItem('institution_id'),
+            donor_id: donor.id
+          })
+        }
+      );
+
+      if(!response.ok){
+          throw new Error("Error on creating a new donation.");
+      }
+
+      alert(`Obrigado ${formData.name}! Sua doação de R$ ${selectedAmount} foi processada com sucesso.`);
+      setSelectedAmount(30);
+      localStorage.removeItem('institution_id');
+      navigate('/Institutions');
+    }
+    catch(error: any){
+      console.log("Error on creating a new donation.");
+    }
   };
 
   const progressPercentage = Math.min((25000 + selectedAmount) / 50000 * 100, 100);
@@ -81,9 +140,7 @@ const DonationPage = () => {
                         <span>R$ {(25000 + selectedAmount).toLocaleString('pt-BR')}</span> Arrecadados
                     </div>
                     </div>
-                    
-            
-
+                                
                 </div>
                 </div>
                 
@@ -137,14 +194,14 @@ const DonationPage = () => {
                     </div>
                     
                     <div className="form-section">
-                    <label htmlFor="name">Nome completo</label>
+                    <label htmlFor="name">Nome de doador</label>
                     <input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        placeholder="Seu nome completo"
+                        placeholder="Digite o nome de doador"
                         required
                     />
                     </div>
@@ -154,16 +211,13 @@ const DonationPage = () => {
                       <input
                         type="text"
                         id="cpfCnpj"
-                        name="cpfCnpj"
-                        value={formData.cpfCnpj || ''}
+                        name="cpf_cnpj"
+                        value={formData.cpf_cnpj || ''}
                         onChange={handleInputChange}
                         placeholder="Digite seu CPF ou CNPJ"
                         required
                       />
-                    </div>
-                  
-                    
-                    
+                    </div>                                                          
                     
                     <button type="submit" className="donate-button">
                     Doar agora

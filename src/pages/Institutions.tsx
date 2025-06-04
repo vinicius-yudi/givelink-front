@@ -66,6 +66,7 @@ const InstitutionsList = () => {
           {institutions.map((institution) => (
             <InstitutionCard
               key={institution.id}
+              id={institution.id}
               name={institution.name}
               tags={[institution.sector]}
               imageUrl={institution.avatar_url}

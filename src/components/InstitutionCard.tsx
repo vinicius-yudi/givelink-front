@@ -3,12 +3,17 @@ import '../components/InstitutionCard.css';
 import { Link } from 'react-router-dom';
 
 interface InstitutionCardProps {
+  id: number,
   name: string;
   tags: string[];
   imageUrl: string;
 }
 
-const InstitutionCard: React.FC<InstitutionCardProps> = ({ name, tags, imageUrl }) => {
+const InstitutionCard: React.FC<InstitutionCardProps> = ({ id, name, tags, imageUrl }) => {
+  const handleDonateClick = () => {
+    localStorage.setItem("institution_id", id.toString());
+  };
+
   return (
     <div className="institution-card">
       <img src={imageUrl} alt={name} />
@@ -22,7 +27,7 @@ const InstitutionCard: React.FC<InstitutionCardProps> = ({ name, tags, imageUrl 
           ))}
         </div>
         <div className="institution-card-buttons">
-          <Link to="/Donation" className="institution-card-button">Doar</Link>
+          <Link to="/Donation" className="institution-card-button" onClick={handleDonateClick}>Doar</Link>
           <button className="institution-card-button">Saiba Mais</button>
         </div>
       </div>
