@@ -1,0 +1,122 @@
+/* Estilos gerais para desktops */
+.donor-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.donors-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas para telas grandes */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+.donors-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 150px auto 20px; /* centraliza horizontalmente */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+.search-bar {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.search-bar:focus {
+  border-color: #2563eb;
+}
+
+.filter-dropdown {
+  width: 200px; /* ou 250px se preferir maior */
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.filter-dropdown:focus {
+  border-color: #2563eb;
+}
+
+.add-button {
+  width: 220px;
+  text-align: center;
+  padding: 10px 15px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+.add-button:hover {
+  background-color: #1e40af;
+}
+
+/* Estilos para tablets (largura máxima de 768px) */
+@media (max-width: 768px) {
+  .donors-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
+    gap: 15px;
+  }
+
+  .donors-controls {
+    flex-direction: column; /* Empilha os controles verticalmente */
+    gap: 15px;
+    margin-top: 250px;
+  }
+
+  .search-bar {
+    width: 100%; /* Barra de pesquisa ocupa toda a largura */
+  }
+
+  .filter-dropdown {
+    width: 100%; /* Dropdown ocupa toda a largura */
+  }
+
+  .add-button {
+    width: 100%; /* Botão ocupa toda a largura */
+  }
+}
+
+/* Estilos para dispositivos móveis (largura máxima de 480px) */
+@media (max-width: 480px) {
+  .donors-list {
+    grid-template-columns: 1fr; /* 1 coluna para dispositivos móveis */
+    gap: 10px;
+  }
+
+  .donors-controls {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 250px;
+
+  }
+
+  .search-bar,
+  .filter-dropdown,
+  .add-button {
+    width: 100%; /* Todos os controles ocupam toda a largura */
+  }
+
+  .add-button {
+    font-size: 14px; /* Ajusta o tamanho da fonte para telas menores */
+    padding: 8px 16px;
+  }
+}

@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import Donation from "./pages/Donation"
 import Donors from "./pages/Donors";
+import DonorsList from "./pages/DonorsList";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/institutionregister" element={<InstitutionRegister />} />
         <Route path="/donors" element={<Donors />} />
+        <Route path="/donors-list" element={<DonorsList />} />
         
         {/* Redirect old paths to new ones */}
         {/* Redirect root path to home */}
