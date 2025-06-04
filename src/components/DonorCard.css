@@ -1,0 +1,114 @@
+.donor-card {
+  position: relative;
+  width: 100%; /* Ajusta a largura para ocupar o espaço disponível */
+  max-width: 600px; /* Aumenta o tamanho máximo do card */
+  height: 350px; /* Aumenta a altura do card */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.donor-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.donor-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem se ajuste ao espaço */
+}
+
+.donor-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2); /* Fundo escuro com transparência */
+  color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.donor-card-content h3 {
+  margin: 0;
+  font-size: 25px; /* Ajusta o tamanho da fonte */
+  font-weight: bold;
+}
+
+.donor-card-content p {
+  margin: 8px 0;
+  font-size: 15px; /* Ajusta o tamanho da fonte */
+}
+
+.donor-card-buttons {
+  margin-top: 10px;
+  display: none; /* Esconde os botões por padrão */
+  gap: 10px;
+}
+
+.donor-card:hover .donor-card-buttons {
+  display: flex; /* Exibe os botões ao passar o mouse */
+}
+
+.donor-card-button {
+  background-color: rgba(37, 99, 235, 0.8); /* Azul com 80% de opacidade */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px; /* Ajusta o tamanho da fonte */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donor-card-button:hover {
+  background-color: rgba(30, 64, 175, 1); /* Azul mais escuro sólido ao passar o mouse */
+}
+
+/* Estilos para tablets (largura máxima de 768px) */
+@media (max-width: 768px) {
+  .donor-card {
+    max-width: 500px; /* Reduz o tamanho máximo do card para tablets */
+    height: 300px; /* Reduz a altura do card */
+  }
+
+  .donor-card-content h3 {
+    font-size: 18px; /* Reduz o tamanho da fonte */
+  }
+
+  .donor-card-content p {
+    font-size: 13px; /* Reduz o tamanho da fonte */
+  }
+
+  .donor-card-button {
+    font-size: 12px; /* Ajusta o tamanho da fonte dos botões */
+    padding: 6px 12px;
+  }
+}
+
+/* Estilos para dispositivos móveis (largura máxima de 480px) */
+@media (max-width: 480px) {
+  .donor-card {
+    max-width: 100%; /* O card ocupa toda a largura disponível */
+    height: 250px; /* Reduz ainda mais a altura do card */
+  }
+
+  .donor-card-content h3 {
+    font-size: 20px; /* Ajusta o tamanho da fonte */
+  }
+
+  .donor-card-content p {
+    font-size: 15px; /* Ajusta o tamanho da fonte */
+  }
+
+  .donor-card-button {
+    font-size: 15px; /* Ajusta o tamanho da fonte dos botões */
+    padding: 5px 10px;
+  }
+}

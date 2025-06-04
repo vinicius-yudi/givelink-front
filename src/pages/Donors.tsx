@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import '../styles/Donors.css';
 import Navbar from '../components/Navbar';
+import { useNavigate } from 'react-router-dom';
+import { validateTokenJwtRedirect } from '../utils/security';
 
 const DonorsRegister = () => {
+  const navigate = useNavigate();
+  validateTokenJwtRedirect(navigate, "/Donors", "/Login");
+
   const [formData, setFormData] = useState({
     name: '',
-    cpfCnpj: '',
+    cpf_cnpj: '',
     avatar_url: ''
   });
 
@@ -14,15 +19,38 @@ const DonorsRegister = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica de envio para o backend
-    alert(`Cadastro realizado com sucesso!\nNome: ${formData.name}\nCPF/CNPJ: ${formData.cpfCnpj}`);
-    setFormData({
-      name: '',
-      cpfCnpj: '',
-      avatar_url: ''
-    });
+    
+    try{
+      const token = localStorage.getItem("access_token");
+      const response = await fetch(
+        'http://localhost:8000/donor',
+        {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            cpf_cnpj: formData.cpf_cnpj,
+            avatar_url: formData.avatar_url
+          })
+        }
+      );
+
+      if(!response.ok){
+        throw new Error("Error on creating a new donor.");
+      }
+
+      navigate('/donors-list');
+    }
+    catch(error: any){
+      console.log("Error on creating a new donor.");
+    }
+
+    alert(`Cadastro realizado com sucesso!\nNome: ${formData.name}\nCPF/CNPJ: ${formData.cpf_cnpj}`);
   };
 
   return (
@@ -33,12 +61,12 @@ const DonorsRegister = () => {
           <h1>CADASTRO DE DOADOR</h1>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Nome completo</label>
+              <label htmlFor="name">Nome</label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Digite seu nome completo"
+                placeholder="Digite o nome do doador"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -49,9 +77,9 @@ const DonorsRegister = () => {
               <input
                 type="text"
                 id="cpfCnpj"
-                name="cpfCnpj"
+                name="cpf_cnpj"
                 placeholder="Digite seu CPF ou CNPJ"
-                value={formData.cpfCnpj}
+                value={formData.cpf_cnpj}
                 onChange={handleChange}
                 required
               />
