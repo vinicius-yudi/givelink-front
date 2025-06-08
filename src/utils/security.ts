@@ -40,3 +40,27 @@ export function validateTokenJwtRedirect(
         []
     );
 }
+
+export function validateTokenJwtRedirectWithNoUseEffects(
+  navigate: NavigateFunction,
+  url: string,
+  authUrl: string
+) {
+  const savedToken = localStorage.getItem("access_token");
+
+  if (savedToken) {
+    try {
+      if (notExpiredTokenJwt(savedToken)) {
+        navigate(url);
+      } else {
+        cleanInvalidTokenJwt();
+        navigate(authUrl);
+      }
+    } catch (error) {
+      cleanInvalidTokenJwt();
+      navigate(authUrl);
+    }
+  } else {
+    navigate(authUrl);
+  }
+}
