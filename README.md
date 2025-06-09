@@ -22,6 +22,9 @@ A GiveLink é uma plataforma que intermedia e conecta doadores a instituições 
 * React icons – Biblioteca de ícones com suporte a vários pacotes (Font Awesome, Material, etc.)
 > npm install react-icons
 
+* Lucide-react
+> npm install lucide-react
+
 
 ### Configuração
 Rode o comando para instalar o node:
