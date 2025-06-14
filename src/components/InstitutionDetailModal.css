@@ -116,12 +116,21 @@
   color: #1f2937;
 }
 
-.modal-description p {
-  color: #4b5563;
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
+.modal-description {
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  margin-top: 16px;
 }
 
+.modal-description p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  max-height: 300px;
+  overflow-y: auto;
+}
 
 .stat-label {
   font-size: 0.875rem;
