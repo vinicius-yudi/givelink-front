@@ -14,15 +14,21 @@ interface Donor{
   username: string
 }
 
+const PAGE_SIZE = 6;
+
 function DonorsList(){
     const navigate = useNavigate();
     const [donors, setDonors] = useState<Donor[]>([]);
     const [selectedOwnership, setSelectedOwnership] = useState<string>('');
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [hasMore, setHasMore] = useState<boolean>(true);
 
     const fetchDonors = async () => {
         try {
+            const offset = (currentPage - 1) * PAGE_SIZE;
+
             const response = await fetch(
-            "http://localhost:8000/donor/list?offset=0&limit=6", 
+            `http://localhost:8000/donor/list?offset=${offset}&limit=${PAGE_SIZE}`, 
             {
                 method: "GET",
                 headers: {
@@ -36,7 +42,7 @@ function DonorsList(){
 
             const data = await response.json();
             setDonors(data.donors);
-
+            setHasMore(data.donors.length === PAGE_SIZE);
         } catch (error) {
             console.error("Erro ao buscar doadores:", error);
         }
@@ -61,7 +67,7 @@ function DonorsList(){
 
             const data = await response.json();
             setDonors(data.donors);
-
+            setHasMore(false);
         } catch (error) {
             console.error("Erro ao buscar doadores:", error);
         }
@@ -74,7 +80,7 @@ function DonorsList(){
         } else {
             fetchDonors();
         }
-    }, [selectedOwnership]);
+    }, [selectedOwnership, currentPage]);
 
     return (
         <>
@@ -89,7 +95,10 @@ function DonorsList(){
             <select 
                 className="filter-dropdown"
                 value={selectedOwnership}
-                onChange={(e) => setSelectedOwnership(e.target.value)}
+                onChange={(e) => {
+                    setSelectedOwnership(e.target.value);
+                    setCurrentPage(1);
+                    }}
             >
                 <option value="">Meus/Todos</option>
                 <option value="Minhas">Meus doadores</option>
@@ -100,12 +109,33 @@ function DonorsList(){
             <div className="donors-list">
             {donors.map((donor) => (
                 <DonorCard
-                key={donor.id}
+                id={donor.id}
                 name={donor.name}
                 imageUrl={donor.avatar_url}
                 />
             ))}
             </div>
+
+            {selectedOwnership !== 'Meus doadores' && (
+                <div className="pagination-controls">
+                    <button
+                    disabled={currentPage === 1}
+                    onClick={() => setCurrentPage((prev) => prev - 1)}
+                    className="pagination-button"
+                    >
+                    ← Anterior
+                    </button>
+                    <span className="page-indicator">Página {currentPage}</span>
+                    <button
+                    disabled={!hasMore}
+                    onClick={() => setCurrentPage((prev) => prev + 1)}
+                    className="pagination-button"
+                    >
+                    Próxima →
+                    </button>
+                </div>
+            )}
+
         </div>
         <Footer />
         </>
