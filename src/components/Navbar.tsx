@@ -45,6 +45,7 @@ const Navbar = () => {
           <div className="navbar-top-links">
             <a href="#">Quem Somos</a>
             <a href="../donors-list">Painel do Doador</a>
+            <a href="../admin-select">Gerencial</a>
             <div
               className="language-selector"
               onClick={() => setDropdownOpen(!dropdownOpen)}
