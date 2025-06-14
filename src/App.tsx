@@ -11,6 +11,7 @@ import Donation from "./pages/Donation"
 import Donors from "./pages/Donors";
 import DonorsList from "./pages/DonorsList";
 import Admin from "./pages/Admin";
+import Resources from "./pages/Resources";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/donors" element={<Donors />} />
         <Route path="/donors-list" element={<DonorsList />} />
         <Route path="/admin-select" element={<Admin />} />
+        <Route path="/resources" element={<Resources />} />
         {/* Redirect old paths to new ones */}
         {/* Redirect root path to home */}
         <Route path="/" element={<Home />} />

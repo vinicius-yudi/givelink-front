@@ -1,0 +1,247 @@
+.resources-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.resources-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 150px auto 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.filter-dropdown {
+  width: 200px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.filter-dropdown:focus {
+  border-color: #2563eb;
+}
+
+.resources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  gap: 20px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.card strong {
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* Botão carregar mais */
+.load-more-button {
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.load-more-button:hover {
+  background-color: #1e40af;
+}
+
+/* Responsivo: tablets */
+@media (max-width: 768px) {
+  .resources-controls {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 250px;
+  }
+
+  .filter-dropdown {
+    width: 100%;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .card img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* Responsivo: celulares */
+@media (max-width: 480px) {
+  .card {
+    padding: 12px;
+  }
+
+  .card img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .card strong {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+}
+
+
+.delete-button {
+  background: transparent;
+  border: none;
+  color: #dc2626;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.delete-button:hover {
+  color: #b91c1c;
+  transform: scale(1.1);
+}
+
+.edit-button {
+  background-color: #f0ad4e;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.edit-button:hover {
+  background-color: #ec971f;
+}
+
+
+
+.edit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-card {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.form-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.save-button {
+  background: #28a745;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+.cancel-button {
+  background: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+textarea {
+  background-color: white;
+  color: black;
+}
+
+.edit-card textarea {
+  background-color: white;
+  color: black;
+}
+
