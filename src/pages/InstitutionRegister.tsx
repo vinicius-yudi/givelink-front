@@ -12,7 +12,8 @@ const InstitutionRegister = () => {
     name: '',
     sector: '',
     cnpj: '',
-    avatar_url: ''
+    avatar_url: '',
+    description: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -36,7 +37,8 @@ const InstitutionRegister = () => {
             name: formData.name,
             sector: formData.sector,
             cnpj: formData.cnpj,
-            avatar_url: formData.avatar_url
+            avatar_url: formData.avatar_url,
+            description: formData.description
           })
         }
       );
@@ -107,6 +109,17 @@ const InstitutionRegister = () => {
                 name="avatar_url"
                 placeholder="Insira a URL da imagem"
                 value={formData.avatar_url}
+                onChange={handleChange}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="description">Descrição</label>
+                <input
+                type="text"
+                id="description"
+                name="description"
+                placeholder="Descrição detalhada"
+                value={formData.description}
                 onChange={handleChange}
                 required
                 />

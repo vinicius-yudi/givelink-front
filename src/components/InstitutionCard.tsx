@@ -17,6 +17,10 @@ const InstitutionCard: React.FC<InstitutionCardProps> = ({ id, name, tags, image
     localStorage.setItem("institution_id", id.toString());
   };
 
+  const handleInfoClick = () => {
+    localStorage.setItem("institution_id", id.toString());
+  };
+
   return (
     <>
       <div className="institution-card">
@@ -32,7 +36,12 @@ const InstitutionCard: React.FC<InstitutionCardProps> = ({ id, name, tags, image
           </div>
           <div className="institution-card-buttons">
             <Link to="/Donation" className="institution-card-button" onClick={handleDonateClick}>Doar</Link>
-            <button className="institution-card-button" onClick={() => setModalOpen(true)}>Saiba Mais</button>
+            <button className="institution-card-button" onClick={
+              () => {
+                setModalOpen(true);
+                handleInfoClick();
+              }
+            }>Saiba Mais</button>
           </div>
         </div>
       </div>
@@ -41,7 +50,10 @@ const InstitutionCard: React.FC<InstitutionCardProps> = ({ id, name, tags, image
         onClose={() => setModalOpen(false)}
         name={name}
         tags={tags}
-        imageUrl={imageUrl}
+        imageUrl={imageUrl} 
+        cnpj={''} 
+        description={''}
+        id={Number(localStorage.getItem('institution_id'))}      
       />
     </>
   );

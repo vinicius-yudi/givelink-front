@@ -1,37 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
-import './InstitutionDetailModal.css';  // Importando o CSS separado
+import './InstitutionDetailModal.css';
 
-interface InstitutionDetailModalProps {
+interface DonorDetailModalProps {
   open: boolean;
   onClose: () => void;
   name: string;
-  tags: string[];
   imageUrl: string;
   id?: number;
-  cnpj: string;
-  description: string;
+  cpfCnpj: string;
 }
 
-export interface Institution {
+export interface Donor {
   id: number;
   name: string;
-  sector: string;
   avatar_url: string;
-  cnpj: string;
+  cpf_cnpj: string;
   username: string;
-  description: string;
 }
 
-const InstitutionDetailModal: React.FC<InstitutionDetailModalProps> = ({
+const DonorDetailModal: React.FC<DonorDetailModalProps> = ({
   open,
   onClose,
   name,
-  tags,
   imageUrl,
-  id
+  id,
+  cpfCnpj
 }) => {
-  const [institution, setInstitution] = useState<Institution | null>(null);
+  const [donor, setDonor] = useState<Donor | null>(null);
   const [opened, setOpened] = useState(false);
 
   useEffect(() => {
@@ -45,13 +41,13 @@ const InstitutionDetailModal: React.FC<InstitutionDetailModalProps> = ({
       document.addEventListener('keydown', handleEsc);
       document.body.style.overflow = 'hidden';
 
-      fetch(`http://localhost:8000/institution/${id}`)
+      fetch(`http://localhost:8000/donor/${id}`)
         .then((res) => res.json())
-        .then((data: Institution) => {
-          setInstitution(data);
+        .then((data: Donor) => {
+          setDonor(data);
         })
         .catch((err) => {
-          console.error('Erro ao buscar instituição:', err);
+          console.error('Erro ao buscar doador:', err);
         });
     }
 
@@ -61,7 +57,7 @@ const InstitutionDetailModal: React.FC<InstitutionDetailModalProps> = ({
     };
   }, [open, id, onClose]);
 
-  if (!open || !institution) return null;
+  if (!open || !donor) return null;
 
   return (
     <div 
@@ -92,39 +88,23 @@ const InstitutionDetailModal: React.FC<InstitutionDetailModalProps> = ({
           <div className="modal-info-section">
             <div className="modal-header">
               <h2>{name}</h2>
-              <div className="modal-tags">
-                {tags.map((tag, index) => (
-                  <span key={index} className="modal-tag">
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
-
-            <div className="modal-description">
-              <h3>Sobre a Instituição</h3>
-              <p>
-                {institution.description}
-              </p>
-            </div>
-
 
             <div className="modal-contact">
-              <h3>CNPJ</h3>
+              <h3>CPF/CNPJ</h3>
               <div className="contact-item">
                 <span className="icon">🏢</span>
-                <span>{institution.cnpj}</span>
+                <span>{donor.cpf_cnpj}</span>
               </div>
 
               <div className="modal-actions">
                 <button
                     onClick={() => {
-                        localStorage.setItem("institution_id", institution.id.toString());
-                        window.location.href = "/Donation";
+                        localStorage.setItem("donor_id", donor.id.toString());
                     }}
                     className="donate-button"
                 >
-                    Fazer Doação
+                    Contatar - (41) 91919-9191
                 </button>
               </div>
             </div>
@@ -135,4 +115,4 @@ const InstitutionDetailModal: React.FC<InstitutionDetailModalProps> = ({
   );
 };
 
-export default InstitutionDetailModal;
+export default DonorDetailModal;

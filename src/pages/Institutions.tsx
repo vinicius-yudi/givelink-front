@@ -15,17 +15,22 @@ interface Institution{
   username: string
 }
 
+const PAGE_SIZE = 6;
+
 const InstitutionsList = () => {
   const navigate = useNavigate();
   const [institutions, setInstitutions] = useState<Institution[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [selectedOwnership, setSelectedOwnership] = useState<string>('');
-
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [hasMore, setHasMore] = useState<boolean>(true);
 
   const fetchInstitutions = async () => {
     try {
+      const offset = (currentPage - 1) * PAGE_SIZE;
+
       const response = await fetch(
-        "http://localhost:8000/institution/list?offset=0&limit=6", 
+        `http://localhost:8000/institution/list?offset=${offset}&limit=${PAGE_SIZE}`, 
         {
           method: "GET",
           headers: {
@@ -39,6 +44,7 @@ const InstitutionsList = () => {
 
       const data = await response.json();
       setInstitutions(data.institutions);
+      setHasMore(data.institutions.length === PAGE_SIZE);
     } catch (error) {
       console.error("Erro ao buscar instituições:", error);
     }
@@ -63,6 +69,7 @@ const InstitutionsList = () => {
 
       const data = await response.json();
       setInstitutions(data.institutions);
+      setHasMore(false);
     } catch (error) {
       console.error("Erro ao buscar instituições:", error);
     }
@@ -75,7 +82,7 @@ const InstitutionsList = () => {
     } else {
       fetchInstitutions();
     }
-  }, [selectedOwnership]);
+  }, [selectedOwnership, currentPage]);
 
   return (
     <>
@@ -101,7 +108,10 @@ const InstitutionsList = () => {
           <select 
             className="filter-dropdown"
             value={selectedOwnership}
-            onChange={(e) => setSelectedOwnership(e.target.value)}
+            onChange={(e) => {
+              setSelectedOwnership(e.target.value);
+              setCurrentPage(1);
+            }}
           >
             <option value="">Minhas/Todas</option>
             <option value="Minhas">Minhas instituições</option>
@@ -120,6 +130,27 @@ const InstitutionsList = () => {
             />
           ))}
         </div>
+
+        {selectedOwnership !== 'Minhas' && (
+          <div className="pagination-controls">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+              className="pagination-button"
+            >
+              ← Anterior
+            </button>
+            <span className="page-indicator">Página {currentPage}</span>
+            <button
+              disabled={!hasMore}
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+              className="pagination-button"
+            >
+              Próxima →
+            </button>
+          </div>
+        )}
+
       </div>
       <Footer />
     </>
