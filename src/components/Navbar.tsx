@@ -6,7 +6,7 @@ import { notExpiredTokenJwt } from '../utils/security';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -23,7 +23,6 @@ const Navbar = () => {
 
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -40,29 +39,6 @@ const Navbar = () => {
   return (
     <header className="navbar-container">
     <>
-      <div className="navbar-top">
-        <div className="navbar-inner">
-          <div className="navbar-top-links">
-            <a href="#">Quem Somos</a>
-            <a href="../donors-list">Painel do Doador</a>
-            <a href="../admin-select">Gerencial</a>
-            <div
-              className="language-selector"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              ref={dropdownRef}
-            >
-              <span className="language-label">Idioma ▾</span>
-              {dropdownOpen && (
-                <div className="language-dropdown">
-                  <a href="#">Português</a>
-                  <a href="#">English</a>
-                  <a href="#">Español</a>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
     </>
       <div className="navbar-main">
         <div className="navbar-inner">
@@ -73,9 +49,9 @@ const Navbar = () => {
           </div>
 
           <nav className="navbar-links">
-            <Link to="/Campaigns">Campanhas</Link>
+            <Link to="../donors-list">Painel do Doador</Link>
             <Link to="../Institutions">Instituições</Link>
-            <Link to="/Contact">Contato</Link>
+            <Link to="../admin-select">Gerencial</Link>
           </nav>
 
           <div className="navbar-buttons">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import './Resources.css';
+import '../styles/Resources.css';
 import { FaTrash, FaEdit } from "react-icons/fa";
 
 const PAGE_SIZE = 6;
