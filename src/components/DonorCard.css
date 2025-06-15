@@ -1,3 +1,5 @@
+/* src/components/DonorCard.css */
+
 .donor-card {
   position: relative;
   width: 100%; /* Ajusta a largura para ocupar o espaço disponível */
@@ -5,20 +7,21 @@
   height: 350px; /* Aumenta a altura do card */
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Keep original shadow, can adjust opacity in dark mode if desired */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  /* No direct background on the card, background is defined by the image and content overlay */
 }
 
 .donor-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Keep original shadow */
 }
 
 .donor-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que a imagem se ajuste ao espaço */
+  object-fit: cover; /* Ensures the image fits the space */
 }
 
 .donor-card-content {
@@ -26,52 +29,55 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.2); /* Fundo escuro com transparência */
-  color: white;
+  background: rgba(0, 0, 0, 0.2); /* Dark background with transparency (keep fixed as it's an image overlay) */
+  color: white; /* Text color on the overlay (keep white for contrast with dark image) */
   padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
+  transition: background 0.3s ease, color 0.3s ease; /* Add transition for content colors */
 }
 
 .donor-card-content h3 {
   margin: 0;
-  font-size: 25px; /* Ajusta o tamanho da fonte */
+  font-size: 25px; /* Adjust font size */
   font-weight: bold;
+  /* Color is already white from parent, if different color needed, add here */
 }
 
 .donor-card-content p {
   margin: 8px 0;
-  font-size: 15px; /* Ajusta o tamanho da fonte */
+  font-size: 15px; /* Adjust font size */
+  /* Color is already white from parent, if different color needed, add here */
 }
 
 .donor-card-buttons {
   margin-top: 10px;
-  display: none; /* Esconde os botões por padrão */
+  display: none; /* Hide buttons by default */
   gap: 10px;
 }
 
 .donor-card:hover .donor-card-buttons {
-  display: flex; /* Exibe os botões ao passar o mouse */
+  display: flex; /* Show buttons on hover */
 }
 
 .donor-card-button {
-  background-color: rgba(37, 99, 235, 0.8); /* Azul com 80% de opacidade */
-  color: white;
+  background-color: var(--primary-color); /* Use variable */
+  color: white; /* Keep white for contrast */
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 14px; /* Ajusta o tamanho da fonte */
+  font-size: 14px; /* Adjust font size */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .donor-card-button:hover {
-  background-color: rgba(30, 64, 175, 1); /* Azul mais escuro sólido ao passar o mouse */
+  background-color: var(--button-hover-color); /* Use variable */
 }
 
-/* Estilos para tablets (largura máxima de 768px) */
+/* Estilos para tablets (largura máxima de 768px) - MANTIDAS INTACTAS */
 @media (max-width: 768px) {
   .donor-card {
     max-width: 500px; /* Reduz o tamanho máximo do card para tablets */
@@ -92,7 +98,7 @@
   }
 }
 
-/* Estilos para dispositivos móveis (largura máxima de 480px) */
+/* Estilos para dispositivos móveis (largura máxima de 480px) - MANTIDAS INTACTAS */
 @media (max-width: 480px) {
   .donor-card {
     max-width: 100%; /* O card ocupa toda a largura disponível */

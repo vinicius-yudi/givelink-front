@@ -3,10 +3,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f9fafb;
+  background-color: var(--background-color); /* Usar variável */
   min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
+  color: var(--text-color); /* Adicionar cor do texto geral */
 }
 
 .institutions-list {
@@ -34,31 +36,41 @@
   flex: 1;
   padding: 10px 15px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color); /* Usar variável */
   border-radius: 8px;
+  background-color: var(--input-background); /* Usar variável */
+  color: var(--input-text-color); /* Usar variável */
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
+}
+
+.search-bar::placeholder {
+    color: var(--placeholder-color); /* Usar variável */
 }
 
 .search-bar:focus {
-  border-color: #2563eb;
+  border-color: var(--primary-color); /* Usar variável */
 }
 
 .filter-dropdown {
   width: 200px; /* ou 250px se preferir maior */
   padding: 10px 15px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color); /* Usar variável */
   border-radius: 8px;
+  background-color: var(--input-background); /* Usar variável */
+  color: var(--input-text-color); /* Usar variável */
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
 }
 .filter-dropdown:focus {
-  border-color: #2563eb;
+  border-color: var(--primary-color); /* Usar variável */
 }
 
 .add-button {
   width: 220px;
   text-align: center;
   padding: 10px 15px;
-  background-color: #2563eb;
-  color: white;
+  background-color: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste no botão */
   font-size: 16px;
   text-decoration: none;
   border-radius: 8px;
@@ -66,10 +78,10 @@
   font-weight: bold;
 }
 .add-button:hover {
-  background-color: #1e40af;
+  background-color: var(--button-hover-color); /* Usar variável */
 }
 
-/* Estilos para tablets (largura máxima de 768px) */
+/* Estilos para tablets (largura máxima de 768px) - MANTIDAS INTACTAS */
 @media (max-width: 768px) {
   .institutions-list {
     grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
@@ -94,7 +106,7 @@
   }
 }
 
-/* Estilos para dispositivos móveis (largura máxima de 480px) */
+/* Estilos para dispositivos móveis (largura máxima de 480px) - MANTIDAS INTACTAS */
 @media (max-width: 480px) {
   .institutions-list {
     grid-template-columns: 1fr; /* 1 coluna para dispositivos móveis */
@@ -118,9 +130,3 @@
     padding: 8px 16px;
   }
 }
-
-
-
-
-
-

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import '../components/Footer.css';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaPaperPlane, FaChevronUp } from 'react-icons/fa';
-import logo from "../assets/logoBranca.png";
+import logo from "../assets/logoBrancaSemFundo.png";
 
 
 const Footer: React.FC = () => {

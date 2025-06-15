@@ -1,7 +1,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6); /* Manter fixo para o efeito de overlay universal */
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
@@ -12,34 +12,38 @@
 }
 
 .modal-content {
-  background-color: white;
+  background-color: var(--card-background); /* Usar variável */
   border-radius: 1rem;
   max-width: 800px;
   width: 100%;
   max-height: 100vh;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Manter sombra, pode ajustar opacidade no dark mode se quiser */
   position: relative;
   animation: scaleIn 0.3s ease;
   display: flex;
   flex-direction: column;
   margin-top: 100px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionar transição */
 }
 
 .modal-close-button {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--background-color); /* Usar variável */
+  color: var(--text-color); /* Adicionar cor do ícone de fechar */
   border: none;
   border-radius: 50%;
   padding: 0.5rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adicionar sombra para visibilidade */
 }
 
 .modal-close-button:hover {
   transform: scale(1.1);
+  background-color: var(--secondary-color); /* Usar variável para hover */
 }
 
 .modal-body {
@@ -68,14 +72,25 @@
 .modal-image {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Adicionado para garantir o ajuste da imagem */
 }
 
 .modal-image-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+  background: linear-gradient(to top, var(--gradient-modal-start), var(--gradient-modal-end)); /* Usar variáveis */
   display: none;
 }
+
+/* Adicione estas variáveis ao seu src/index.css */
+/* :root {
+    --gradient-modal-start: rgba(0,0,0,0.3);
+    --gradient-modal-end: transparent;
+}
+body.dark-mode {
+    --gradient-modal-start: rgba(0,0,0,0.5); // Mais escuro para o dark mode
+    --gradient-modal-end: transparent;
+} */
 
 @media (max-width: 1023px) {
   .modal-image-gradient {
@@ -87,12 +102,14 @@
   flex: 1;
   padding: 1rem;
   overflow-y: auto;
+  color: var(--text-color); /* Usar variável */
+  transition: color 0.3s ease; /* Adicionar transição */
 }
 
 .modal-header h2 {
   font-size: 1.75rem;
   margin-bottom: 0.75rem;
-  color: #1f2937;
+  color: var(--text-color); /* Usar variável */
 }
 
 .modal-tags {
@@ -103,17 +120,18 @@
 }
 
 .modal-tag {
-  background-color: #bfdbfe;
-  color: #1d4ed8;
+  background-color: var(--secondary-color); /* Usar variável */
+  color: var(--primary-color); /* Usar variável */
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.875rem;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
 }
 
 .modal-description h3 {
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
-  color: #1f2937;
+  color: var(--text-color); /* Usar variável */
 }
 
 .modal-description {
@@ -127,26 +145,26 @@
 .modal-description p {
   font-size: 1rem;
   line-height: 1.5;
-  color: #333;
+  color: var(--text-color); /* Usar variável */
   max-height: 300px;
   overflow-y: auto;
 }
 
 .stat-label {
   font-size: 0.875rem;
-  color: #4b5563;
+  color: var(--text-color); /* Usar variável (ou --placeholder-color) */
 }
 
 .modal-contact h3 {
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
-  color: #1f2937;
+  color: var(--text-color); /* Usar variável */
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  color: #4b5563;
+  color: var(--text-color); /* Usar variável (ou --placeholder-color) */
   margin-bottom: 0.5rem;
 }
 
@@ -154,15 +172,12 @@
   width: 1.25rem;
   height: 1.25rem;
   margin-right: 0.5rem;
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
 }
 
-.modal-contact .contact-item:nth-child(3) .icon {
-  color: #2563eb;
-}
-
+.modal-contact .contact-item:nth-child(3) .icon,
 .modal-contact .contact-item:nth-child(4) .icon {
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
 }
 
 .modal-actions {
@@ -170,7 +185,8 @@
   flex-direction: column;
   gap: 0.75rem;
   padding-top: 1rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--border-color); /* Usar variável */
+  transition: border-color 0.3s ease; /* Adicionar transição */
 }
 
 @media (min-width: 640px) {
@@ -181,36 +197,36 @@
 
 .donate-button {
   flex: 1;
-  background-color: #2563eb;
-  color: white;
+  background-color: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste */
   font-weight: 600;
   padding: 0.75rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease; /* Adicionar transição */
 }
 
 .donate-button:hover {
-  background-color: #1d4ed8;
+  background-color: var(--button-hover-color); /* Usar variável */
   transform: scale(1.02);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .contact-button {
   flex: 1;
-  background-color: #f3f4f6;
-  color: #1f2937;
+  background-color: var(--secondary-color); /* Usar variável */
+  color: var(--text-color); /* Usar variável */
   font-weight: 600;
   padding: 0.75rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
 }
 
 .contact-button:hover {
-  background-color: #e5e7eb;
+  background-color: var(--border-color); /* Usar variável para hover */
   transform: scale(1.02);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
@@ -225,13 +241,11 @@
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Tablets (768px até 1024px) */
+/* Tablets (768px até 1024px) - MANTIDOS INTACTOS */
 @media (min-width: 768px) and (max-width: 1024px) {
   .modal-content {
     max-width: 100%;
     flex-direction: column;
     border-radius: 16px;
   }
-
-  
 }

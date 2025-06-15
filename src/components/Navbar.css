@@ -4,10 +4,9 @@
   font-family: 'Montserrat', sans-serif;
   position: fixed;
   top: 0;
-  background-color: white;
+  background-color: var(--background-color); /* Usar variável */
   z-index: 1000; /* garantir que esteja acima de tudo */
-
-
+  transition: background-color 0.3s ease; /* Adicionar transição */
 }
 
 .navbar-inner {
@@ -21,14 +20,13 @@
 
 /* Barra de cima */
 .navbar-top {
-  background-color: #f8f9fa;
+  background-color: var(--header-background); /* Usar variável */
   padding: 8px 0;
-  
-
+  transition: background-color 0.3s ease; /* Adicionar transição */
 }
 
 .navbar-top-links a {
-  color: rgb(75 85 99);
+  color: var(--text-color); /* Usar variável */
   font-size: 16px;
   margin-left: 20px;
   text-decoration: none;
@@ -37,7 +35,7 @@
 }
 
 .navbar-top-links a:hover {
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
 }
 
 .language-selector {
@@ -50,7 +48,7 @@
 }
 
 .language-label {
-  color: rgb(75 85 99);
+  color: var(--text-color); /* Usar variável */
   font-size: 16px;
   text-decoration: none;
   transition: color 0.3s;
@@ -59,7 +57,7 @@
 }
 
 .language-label:hover {
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
 }
 
 .language-dropdown {
@@ -67,43 +65,41 @@
   top: 100%;
   left: 0;
   margin-top: 8px;
-  background: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  background: var(--background-color); /* Usar variável */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Manter sombra, pode ajustar opacidade no dark mode se quiser */
   border-radius: 0.375rem;
   padding: 0.25rem 0;
   z-index: 10;
   min-width: 140px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
 }
 
 .language-dropdown a {
   display: block;
   padding: 8px 16px;
   font-size: 14px;
-  color: #374151;
+  color: var(--text-color); /* Usar variável */
   text-decoration: none;
 }
 
 .language-dropdown a:hover {
-  background-color: #f3f4f6;
+  background-color: var(--secondary-color); /* Usar variável */
 }
 
 
 .navbar-main {
   top: 0;
   z-index: 1000;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color); /* Usar variável */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Manter sombra, pode ajustar opacidade no dark mode se quiser */
   padding-right: 20px;
+  transition: background-color 0.3s ease; /* Adicionar transição */
 }
-
-
-
 
 .navbar-logo img {
   height: 60px;
   margin-right: 10px;
 }
-
 
 .navbar-links {
   display: flex;
@@ -112,14 +108,14 @@
 
 .navbar-links a {
   text-decoration: none;
-  color: rgb(75 85 99);
+  color: var(--text-color); /* Usar variável */
   font-weight: 500;
   transition: color 0.3s;
   font-size: 20px;
 }
 
 .navbar-links a:hover {
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
 }
 
 .navbar-buttons {
@@ -129,51 +125,51 @@
 }
 
 .login-button {
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
   padding: 8px 20px;
   border-radius: 30px;
   font-weight: 600;
   text-decoration: none;
-  border: 2px solid #2563eb;
+  border: 2px solid var(--primary-color); /* Usar variável */
   background-color: transparent;
 }
 
 .login-button:hover {
-  background-color: #2563eb;
-  color: #ffffff;
+  background-color: var(--primary-color); /* Usar variável */
+  color: var(--background-color); /* Usar variável */
   transition: background-color 0.3s, color 0.3s;
-  border: 2px solid #2563eb;
+  border: 2px solid var(--primary-color); /* Usar variável */
 }
 
 
 .register-button {
-  background-color: #2563eb;
-  color: #ffffff;
+  background-color: var(--primary-color); /* Usar variável */
+  color: var(--background-color); /* Usar variável */
   padding: 8px 20px;
   border-radius: 30px;
   font-weight: 600;
   text-decoration: none;
-  border: 2px solid #2563eb;
+  border: 2px solid var(--primary-color); /* Usar variável */
 }
 
 .logout-button {
-  background-color: #2563eb;
-  color: #ffffff;
+  background-color: var(--primary-color); /* Usar variável */
+  color: var(--background-color); /* Usar variável */
   padding: 8px 20px;
   border-radius: 30px;
   font-weight: 600;
   text-decoration: none;
-  border: 2px solid #2563eb;
+  border: 2px solid var(--primary-color); /* Usar variável */
 }
 
 .register-button:hover {
   background-color: transparent;
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
   transition: background-color 0.3s, color 0.3s;
-  border: 2px solid #2563eb;
+  border: 2px solid var(--primary-color); /* Usar variável */
 }
 
-/* Esconde links e botões no mobile, mostra menu hamburguer */
+/* Esconde links e botões no mobile, mostra menu hamburguer - MANTIDAS INTACTAS */
 .desktop-only { display: flex; }
 .mobile-only { display: none !important; }
 
@@ -185,7 +181,7 @@
     background: none;
     border: none;
     font-size: 2rem;
-    color: #2563eb;
+    color: var(--primary-color); /* Usar variável */
     cursor: pointer;
     align-items: center;
     margin-left: auto;
@@ -201,15 +197,16 @@
     top: 70px;
     right: 10px;
     left: 10px;
-    background: #fff;
+    background: var(--background-color); /* Usar variável */
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18); /* Manter sombra, pode ajustar opacidade no dark mode se quiser */
     padding: 24px 16px 16px 16px;
     z-index: 1100;
     animation: fadeInMenu 0.2s;
     display: flex;
     flex-direction: column;
     gap: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
   }
   @keyframes fadeInMenu {
     from { opacity: 0; transform: translateY(-10px);}
@@ -222,7 +219,7 @@
     margin-bottom: 10px;
   }
   .navbar-mobile-links a {
-    color: #2563eb;
+    color: var(--primary-color); /* Usar variável */
     font-size: 1.15rem;
     font-weight: 600;
     text-decoration: none;
@@ -231,7 +228,7 @@
     transition: background 0.2s;
   }
   .navbar-mobile-links a:hover {
-    background: #e0e7ff;
+    background: var(--secondary-color); /* Usar variável */
   }
   .navbar-mobile-buttons {
     display: flex;
@@ -247,25 +244,60 @@
     padding: 10px 0;
     border-radius: 30px;
     font-weight: 600;
-    border: 2px solid #2563eb;
-    background: #fff;
-    color: #2563eb;
+    border: 2px solid var(--primary-color); /* Usar variável */
+    background: var(--background-color); /* Usar variável */
+    color: var(--primary-color); /* Usar variável */
     transition: background 0.2s, color 0.2s;
   }
   .register-button {
-    background: #2563eb;
-    color: #fff;
+    background: var(--primary-color); /* Usar variável */
+    color: var(--background-color); /* Usar variável */
   }
   .login-button:hover,
   .logout-button:hover {
-    background: #2563eb;
-    color: #fff;
+    background: var(--primary-color); /* Usar variável */
+    color: var(--background-color); /* Usar variável */
   }
   .register-button:hover {
-    background: #fff;
-    color: #2563eb;
+    background: var(--background-color); /* Usar variável */
+    color: var(--primary-color); /* Usar variável */
   }
 }
 
-/* ...existing code... */
+/* Estilos para o botão de alternância de tema (já usando variáveis) */
+.theme-toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  color: var(--primary-color); /* Cor do ícone */
+}
 
+.theme-toggle-button:hover {
+  background-color: var(--secondary-color); /* Fundo sutil ao passar o mouse */
+}
+
+.theme-toggle-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Ajustes para o menu mobile quando o tema é alternado */
+.navbar-mobile-dropdown .theme-toggle-button {
+  width: 100%;
+  border-radius: 30px;
+  padding: 10px 0;
+  background: var(--background-color);
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.navbar-mobile-dropdown .theme-toggle-button:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}

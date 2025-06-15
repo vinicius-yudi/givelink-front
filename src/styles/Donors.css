@@ -3,25 +3,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('../assets/background2.jpg') no-repeat center center fixed;
+  background: url('../assets/background2.jpg') no-repeat center center fixed; /* Manter imagem de fundo */
   background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
-
+  /* Adicionar transição de cor de texto se houver texto solto na página */
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .form-container {
-  background: #fff;
+  background: var(--card-background); /* Usar variável */
   padding: 50px;
   padding-right: 70px;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08); /* Manter sombra, pode ajustar opacidade no dark mode se quiser */
   max-width: 400px;
   width: 100%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionar transição */
 }
 
 .form-container h1 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #2d3a4a;
+  color: var(--text-color); /* Usar variável */
   font-size: 1.7rem;
   font-weight: 700;
 }
@@ -33,31 +36,36 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #2d3a4a;
+  color: var(--text-color); /* Usar variável */
   font-weight: 500;
 }
 
 .form-group input {
   width: 100%;
   padding: 0.7rem 1rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border-color); /* Usar variável */
   border-radius: 8px;
   font-size: 1rem;
-  background: #f9fafb;
-  transition: border 0.2s;
+  background: var(--input-background); /* Usar variável */
+  color: var(--input-text-color); /* Usar variável */
+  transition: border 0.2s, background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
+}
+
+.form-group input::placeholder {
+    color: var(--placeholder-color); /* Usar variável */
 }
 
 .form-group input:focus {
-  border: 1.5px solid #4f8cff;
+  border: 1.5px solid var(--primary-color); /* Usar variável */
   outline: none;
-  background: #fff;
+  background: var(--background-color); /* Usar variável */
 }
 
 .submit-button {
   width: 420px;
   padding: 1rem 0;
-  background: #2563eb;
-  color: #fff;
+  background: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste no botão */
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
@@ -67,10 +75,10 @@
 }
 
 .submit-button:hover {
-  background: #1e40af;
+  background: var(--button-hover-color); /* Usar variável */
 }
 
-/* Responsividade */
+/* Responsividade - MANTIDAS INTACTAS */
 @media (max-width: 500px) {
   .donors-register-page {
     padding: 20px;
@@ -89,25 +97,34 @@
   }
 }
 
+/* PAGINATION CONTROLS */
 .pagination-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
   gap: 10px;
+  color: var(--text-color); /* Usar variável para o texto da paginação */
+  transition: color 0.3s ease; /* Adicionar transição */
 }
 
 .pagination-button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste */
   border: none;
   padding: 10px 14px;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:hover:not(:disabled) { /* Adicionado :not(:disabled) para hover */
+  background-color: var(--button-hover-color); /* Usar variável */
 }
 
 .pagination-button:disabled {
-  background-color: #ccc;
+  background-color: var(--border-color); /* Usar variável para botão desabilitado */
+  color: var(--placeholder-color); /* Usar variável para texto de botão desabilitado */
   cursor: not-allowed;
 }
 

@@ -5,29 +5,82 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424; /* Fallback, será sobrescrito pelas variáveis */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Cores para o tema claro */
+  --background-color: #ffffff;
+  --text-color: #213547;
+  --primary-color: #2563eb;
+  --secondary-color: #e0e7ff;
+  --card-background: #f9fafb;
+  --border-color: #d1d5db;
+  --header-background: #f8f9fa;
+  --footer-background: #232150;
+  --footer-text-color: white;
+  --footer-border-color: #1e3a8a;
+  --button-hover-color: #1d4ed8;
+  --input-background: #f9fafb;
+  --input-text-color: #000;
+  --placeholder-color: #999;
+  --link-color: #646cff;
+  --link-hover-color: #FFFFFF; /* Cor original do hover para links no light mode */
+
+  /* Variáveis de gradiente para o tema claro (usadas em Donation.css, InstitutionDetailModal.css) */
+  --gradient-start-color: #eff6ff;
+  --gradient-end-color: #faf5ff;
+  --gradient-modal-start: rgba(0,0,0,0.3);
+  --gradient-modal-end: transparent;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/* Cores para o tema escuro */
+body.dark-mode {
+  --background-color: #1a1a1a;
+  --text-color: #e2e8f0;
+  --primary-color: #6366f1;
+  --secondary-color: #4338ca;
+  --card-background: #2d3748;
+  --border-color: #4a5568;
+  --header-background: #2d3748;
+  --footer-background: #1a1a1a;
+  --footer-text-color: #e2e8f0;
+  --footer-border-color: #374151;
+  --button-hover-color: #4f46e5;
+  --input-background: #374151;
+  --input-text-color: #e2e8f0;
+  --placeholder-color: #a0aec0;
+  --link-color: #818cf8;
+  --link-hover-color: #FFFFFF; /* Cor para links no dark mode hover */
+
+  /* Variáveis de gradiente para o tema escuro */
+  --gradient-start-color: #2c313a;
+  --gradient-end-color: #1a1a1a;
+  --gradient-modal-start: rgba(0,0,0,0.5); /* Mais escuro para o dark mode */
+  --gradient-modal-end: transparent;
 }
 
-
+/* Aplique as variáveis a elementos comuns */
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--link-hover-color);
 }
 
 button {
@@ -37,67 +90,395 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--primary-color);
+  color: white; /* Cor do texto do botão primário */
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s, color 0.25s; /* Adicionar color à transição */
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: var(--link-color); /* Pode ser ajustado para algo como var(--primary-color) ou manter link-color */
+  background-color: var(--button-hover-color);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
-  padding: 2em;
+  background-color: var(--card-background);
+  color: var(--text-color);
 }
 
-.read-the-docs {
-  color: #888;
+/* Ajustes para a Navbar */
+.navbar-container {
+  background-color: var(--background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Manter sombra, pode ajustar opacidade no dark mode se quiser */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-main {
+  background-color: var(--background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-top {
+  background-color: var(--header-background);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-top-links a {
+  color: var(--text-color);
+}
+
+.navbar-top-links a:hover {
+  color: var(--primary-color);
+}
+
+.language-label {
+  color: var(--text-color);
+}
+
+.language-label:hover {
+  color: var(--primary-color);
+}
+
+.language-dropdown {
+  background: var(--background-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.language-dropdown a {
+  color: var(--text-color);
+}
+
+.language-dropdown a:hover {
+  background-color: var(--secondary-color);
+}
+
+.navbar-links a {
+  color: var(--text-color);
+}
+
+.navbar-links a:hover {
+  color: var(--primary-color);
+}
+
+.login-button {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+}
+
+.login-button:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.register-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: 2px solid var(--primary-color);
+}
+
+.register-button:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.logout-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: 2px solid var(--primary-color);
+}
+
+.logout-button:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+/* Ajustes para o Footer */
+.footer {
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-bottom {
+  border-top: 2px solid var(--footer-border-color);
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-bottom-links a {
+  color: var(--footer-text-color);
+}
+
+.footer-bottom-links a:hover {
+  color: var(--primary-color);
+}
+
+.back-to-top {
+  background-color: var(--primary-color);
+}
+
+.back-to-top:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Ajustes para o Login e Register (serão sobrescritos abaixo se dark-mode estiver ativo nessas páginas) */
+.login-page .login-info,
+.register-page .register-info {
+  background-color: var(--footer-background);
+  border: 2px solid var(--primary-color);
+  border-left: none; /* Manter a borda específica */
+}
+
+.login-page .login-info p span,
+.register-page .register-info span {
+  color: var(--secondary-color);
+}
+
+.login-page .btn-login,
+.register-page .btn-submit {
+  background-color: var(--footer-background);
+}
+
+.login-page .login-box,
+.register-page .register-box {
+  background: var(--background-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-page .input-underline,
+.register-page .input-underline {
+  color: var(--input-text-color);
+  border-bottom-color: var(--border-color);
+}
+
+.login-page .input-underline::placeholder,
+.register-page .input-underline::placeholder {
+  color: var(--placeholder-color);
+}
+
+.login-page .input-underline:focus,
+.register-page .input-underline:focus {
+  border-bottom-color: var(--primary-color);
+}
+
+.login-page .btn-login:hover,
+.register-page .btn-submit:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Ajustes para Donation, Donors, Institutions, Admin, Resources */
+.donation-page,
+.donor-page,
+.institution-page,
+.admin-page,
+.resources-page {
+  background: var(--background-color); /* Usar a variável de background */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.donation-card,
+.form-container, /* Usado em Donors e Institution Register */
+.institution-card,
+.donor-card,
+.card { /* Usado em Resources */
+  background-color: var(--card-background);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Ajustar sombra para tema escuro */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.donation-form h1,
+.donation-form .subtitle,
+.form-container h1,
+.form-group label,
+.card strong,
+.card p,
+.modal-header h2,
+.modal-description h3,
+.modal-description p,
+.modal-contact h3,
+.contact-item span {
+  color: var(--text-color);
+}
+
+.donation-option.active {
+  border-color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.payment-option.active,
+.payment-option:hover {
+  border-color: var(--primary-color);
+  background: var(--secondary-color);
+}
+
+input,
+select,
+textarea { /* Adicionado para incluir textarea */
+  background-color: var(--input-background);
+  color: var(--input-text-color);
+  border: 1px solid var(--border-color);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+}
+
+/* Botões específicos que não seguem o padrão geral */
+.admin-button,
+.add-button,
+.donate-button,
+.save-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.admin-button:hover,
+.add-button:hover,
+.donate-button:hover,
+.save-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.delete-button {
+  color: #dc2626; /* Manter vermelho para delete */
+}
+
+.edit-button {
+  background-color: #f0ad4e; /* Manter laranja para edit */
+  color: white;
+}
+
+.cancel-button {
+  background: #dc3545; /* Manter vermelho para cancelar */
+  color: white;
 }
 
 
+/* SOBRESCRITAS PARA LOGIN E REGISTRO PARA MANTER O TEMA CLARO */
+/* Quando o body tem dark-mode, mas a página é de login ou registro,
+   redefina as variáveis para os valores do tema claro. */
+body.dark-mode .login-page,
+body.dark-mode .register-page { /* Adicionado donors-register-page e institution-register-page */
+  /* Redefinir as principais variáveis para os valores do tema CLARO */
+  --background-color: #ffffff;
+  --text-color: #213547;
+  --primary-color: #2563eb;
+  --secondary-color: #e0e7ff;
+  --card-background: #ffffff; /* Fundo original do form-container no login/register */
+  --border-color: #d1d5db;
+  --input-background: #f9fafb; /* Fundo original dos inputs */
+  --input-text-color: #000; /* Cor do texto original dos inputs */
+  --placeholder-color: #999; /* Cor do placeholder original */
+  --button-hover-color: #1e40af; /* Hover original dos botões */
+  --link-color: #4338ca; /* Cor original dos links de registro/login */
+  --link-hover-color: #2563eb; /* Hover original dos links de registro/login */
 
+  /* Cores específicas do painel lateral de info (Login/Register) */
+  --footer-background: #1e1b4b; /* Reverter para a cor azul escuro original */
+  --footer-text-color: white; /* Reverter para branco */
+  --footer-border-color: #38bdf8; /* Reverter para a borda original */
+
+  /* Variáveis de gradiente para o tema claro */
+  --gradient-start-color: #eff6ff;
+  --gradient-end-color: #faf5ff;
+  --gradient-modal-start: rgba(0,0,0,0.3);
+  --gradient-modal-end: transparent;
+
+  /* Garantir que elementos específicos dentro dessas páginas usem as cores "resetadas" */
+  & .login-box,
+  & .form-container { /* Containers principais de formulário */
+    background: var(--card-background); /* Fundo claro para o box */
+    color: var(--text-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Manter sombra do tema claro */
+  }
+
+  & h1 {
+    color: var(--text-color); /* Títulos voltam ao tema claro */
+  }
+
+  & label {
+    color: var(--text-color); /* Labels voltam ao tema claro */
+  }
+
+  & .input-underline {
+    color: var(--input-text-color);
+    border-bottom-color: var(--border-color);
+  }
+
+  & .input-underline::placeholder {
+    color: var(--placeholder-color);
+  }
+
+  & .input-underline:focus {
+    border-color: var(--primary-color);
+  }
+
+  & .btn-login,
+  & .submit-button {
+    background-color: var(--primary-color);
+    color: white; /* Botões primários voltam ao tema claro */
+  }
+  & .btn-login:hover,
+  & .submit-button:hover {
+    background-color: var(--button-hover-color);
+  }
+
+  & .btn-google {
+    border-color: var(--border-color);
+    background: var(--input-background);
+    color: var(--text-color); /* Botão Google volta ao tema claro */
+  }
+  & .btn-google:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--primary-color);
+  }
+
+  & .divider,
+  & .signup-link {
+    color: var(--text-color); /* Divisor e links gerais */
+  }
+
+  & .signup-link a {
+    color: var(--link-color); /* Links de signup/login voltam ao tema claro */
+  }
+  & .signup-link a:hover {
+    color: var(--link-hover-color);
+  }
+
+  & .login-info { /* Painel lateral de informação */
+      background-color: var(--footer-background);
+      color: var(--footer-text-color);
+      border-color: var(--footer-border-color);
+  }
+  & .login-info h2,
+  & .login-info p {
+      color: var(--footer-text-color);
+  }
+  & .login-info p span {
+      color: var(--secondary-color);
+  }
+
+  /* Para os botões de paginação que podem aparecer em Donors.css */
+  & .pagination-button {
+      background-color: #007bff; /* Cor fixa original, se for o caso */
+      color: white;
+  }
+  & .pagination-button:disabled {
+      background-color: #ccc;
+      color: #888;
+  }
+  & .page-indicator {
+      color: var(--text-color);
+  }
+}

@@ -1,9 +1,22 @@
 /* Estilos gerais */
 .donation-page {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #eff6ff, #faf5ff);
+  /* Usar variáveis para o gradiente de fundo */
+  background: linear-gradient(135deg, var(--gradient-start-color), var(--gradient-end-color));
   min-height: 100vh;
+  transition: background 0.3s ease; /* Adicionar transição para o gradiente */
 }
+
+/* Adicione estas variáveis ao seu src/index.css */
+/* :root {
+    --gradient-start-color: #eff6ff;
+    --gradient-end-color: #faf5ff;
+}
+body.dark-mode {
+    --gradient-start-color: #2c313a; // Um tom escuro para o gradiente
+    --gradient-end-color: #1a1a1a;  // Outro tom escuro para o gradiente
+} */
+
 
 .container {
   width: 100%;
@@ -14,10 +27,11 @@
 }
 
 .donation-card {
-  background-color: white;
+  background-color: var(--card-background); /* Usar variável */
   border-radius: 1rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* Manter sombra, pode ajustar opacidade no dark mode se quiser */
   overflow: hidden;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionar transição */
 }
 
 .donation-container {
@@ -25,7 +39,7 @@
   flex-direction: column;
 }
 
-/* Layout responsivo */
+/* Layout responsivo - MANTIDO INTACTO */
 @media (min-width: 768px) {
   .donation-container {
     flex-direction: row;
@@ -36,8 +50,9 @@
 .impact-visualization {
   width: 100%;
   padding: 2rem;
-  background-color: #2563eb;
-  color: white;
+  background-color: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste com a cor primária */
+  transition: background-color 0.3s ease; /* Adicionar transição */
 }
 
 @media (min-width: 768px) {
@@ -58,43 +73,37 @@
   margin-bottom: 1.5rem;
 }
 
-
-
 .progress-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  color: white; /* Manter branco para contraste */
 }
 
 .progress-bar-container {
   height: 0.75rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.3); /* Manter fixo para contraste com a barra de progresso */
   overflow: hidden;
   border-radius: 9999px;
-
 }
 
 .progress-bar {
   height: 100%;
-  background-color: white;
+  background-color: white; /* Manter branco para o preenchimento da barra */
   transition: width 1.5s ease-in-out;
 }
 
 .progress-text {
   margin-top: 0.5rem;
   font-size: 0.875rem;
-  color: white;
+  color: white; /* Manter branco para contraste */
 }
-
-
 
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
-
-
 
 /* Seção do formulário */
 .donation-form {
@@ -110,12 +119,12 @@
 .donation-form h1 {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-color); /* Usar variável */
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  color: #4b5563;
+  color: var(--text-color); /* Usar variável (ou uma cor mais suave se apropriado, como --placeholder-color) */
   margin-bottom: 2rem;
 }
 
@@ -126,7 +135,7 @@
 .form-section label {
   display: block;
   font-weight: 500;
-  color: #374151;
+  color: var(--text-color); /* Usar variável */
   margin-bottom: 0.75rem;
 }
 
@@ -144,11 +153,13 @@
 }
 
 .donation-option {
-  border: 2px solid #e5e7eb;
+  border: 2px solid var(--border-color); /* Usar variável */
   border-radius: 0.75rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  background-color: var(--input-background); /* Usar variável */
+  color: var(--text-color); /* Usar variável */
 }
 
 .donation-option:hover {
@@ -156,11 +167,9 @@
 }
 
 .donation-option.active {
-  border-color: #3b82f6;
-  background-color: #eff6ff;
+  border-color: var(--primary-color); /* Usar variável */
+  background-color: var(--secondary-color); /* Usar variável */
 }
-
-
 
 @media (min-width: 768px) {
   .custom-amount {
@@ -171,45 +180,52 @@
 .option-amount {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
   margin-bottom: 0.5rem;
 }
 
 .option-description {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: var(--text-color); /* Usar variável (ou --placeholder-color) */
 }
 
-
-
-
-input{
-  border: 1px solid #d1d5db;
+input {
+  border: 1px solid var(--border-color); /* Usar variável */
   border-radius: 0.5rem;
-
+  background-color: var(--input-background); /* Usar variável */
+  color: var(--input-text-color); /* Usar variável */
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
 }
 
+input::placeholder {
+    color: var(--placeholder-color); /* Usar variável */
+}
+
+input:focus {
+  border-color: var(--primary-color); /* Usar variável */
+}
 
 .donate-button {
   width: 100%;
-  background-color: #2563eb;
-  color: white;
+  background-color: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste no botão */
   font-weight: 500;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, background-color 0.3s ease; /* Adicionar background-color à transição */
 }
 
 .donate-button:hover {
   opacity: 0.9;
+  background-color: var(--button-hover-color); /* Usar variável */
 }
 
 .security-info {
   text-align: center;
   margin-top: 1rem;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: var(--text-color); /* Usar variável (ou --placeholder-color) */
 }
 
 .security-icons {
@@ -228,8 +244,8 @@ input{
 
 .payment-option {
   flex: 1;
-  background: #f3f4f6;
-  border: 2px solid #e5e7eb;
+  background: var(--input-background); /* Usar variável */
+  border: 2px solid var(--border-color); /* Usar variável */
   border-radius: 1rem;
   padding: 1rem;
   display: flex;
@@ -241,24 +257,26 @@ input{
 
 .payment-option.active,
 .payment-option:hover {
-  border-color: #2563eb;
-  background: #e0e7ff;
+  border-color: var(--primary-color); /* Usar variável */
+  background: var(--secondary-color); /* Usar variável */
 }
 
 .payment-icon {
   width: 48px;
   height: 48px;
   margin-bottom: 0.5rem;
+  /* Ícones de pagamento podem precisar de cor: */
+  color: var(--primary-color); /* A cor primária pode ser uma boa escolha para ícones */
 }
 
 .payment-option span {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
 }
 
 
-/* Ajustes para dispositivos móveis */
+/* Ajustes para dispositivos móveis - MANTIDOS INTACTOS */
 @media (max-width: 500px) {
   .container {
     padding: 0.5rem 0.2rem;
@@ -350,4 +368,3 @@ input{
     box-sizing: border-box;
   }
 }
-

@@ -483,4 +483,162 @@
     background-color: white;
     color: #2563eb;
   }
-  
+
+  /* src/styles/Home.css */
+
+.home-container {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--background-color); /* Substituir por variável */
+  color: var(--text-color); /* Substituir por variável */
+}
+
+/* ... (outros estilos) ... */
+
+.impact-section {
+  background: var(--background-color); /* Substituir por variável */
+}
+
+.impact-item h3 {
+  color: var(--primary-color); /* Substituir por variável */
+}
+
+.impact-item p {
+  color: var(--text-color); /* Substituir por variável ou cor específica */
+}
+
+.featured-campaigns {
+  background: var(--card-background); /* Substituir por variável */
+}
+
+.section-header h2 {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.section-header p {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.campaign-card {
+  background: var(--background-color); /* Substituir por variável */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Pode ajustar para tema escuro */
+}
+
+.campaign-content h3 {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.campaign-content p {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.progress-text {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.progress-bar {
+  background-color: var(--border-color); /* Substituir por variável */
+}
+
+.progress-value {
+  background-color: var(--primary-color); /* Substituir por variável */
+}
+
+.how-it-works {
+  background: var(--background-color); /* Substituir por variável */
+}
+
+.step h3 {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.step p {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.testimonials {
+  background: var(--secondary-color); /* Pode ser uma cor diferente no tema escuro */
+}
+
+.testimonials-grid {
+  background: var(--background-color); /* Substituir por variável */
+}
+
+.testimonial-card h4 {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.testimonial-card p {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.call-to-action {
+  background-color: var(--primary-color); /* Substituir por variável */
+  color: var(--footer-text-color); /* Usar cor de texto do footer */
+}
+
+.call-to-action h2,
+.call-to-action p {
+  color: var(--footer-text-color); /* Usar cor de texto do footer */
+}
+
+.newsletter {
+  background: var(--background-color); /* Substituir por variável */
+}
+
+.newsletter h2 {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.newsletter p {
+  color: var(--text-color); /* Substituir por variável */
+}
+
+.newsletter-form input {
+  background-color: var(--input-background); /* Substituir por variável */
+  color: var(--input-text-color); /* Substituir por variável */
+  border: 1px solid var(--border-color); /* Substituir por variável */
+}
+
+.newsletter-form input::placeholder {
+  color: var(--placeholder-color); /* Substituir por variável */
+}
+
+.newsletter-form button {
+  background-color: var(--primary-color); /* Substituir por variável */
+  color: var(--footer-text-color); /* Usar cor de texto do footer */
+  border: 1px solid var(--primary-color); /* Substituir por variável */
+}
+
+.newsletter-form button:hover {
+  background-color: var(--button-hover-color); /* Substituir por variável */
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover-color);
+}
+
+.btn-secondary {
+  background-color: var(--primary-color); /* Pode ser a cor primária ou uma nova variável */
+  color: var(--footer-text-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--button-hover-color);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--footer-text-color); /* Borda com a cor do texto do footer */
+  color: var(--footer-text-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--footer-text-color);
+  color: var(--primary-color);
+}

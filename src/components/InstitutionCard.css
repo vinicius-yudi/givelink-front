@@ -5,14 +5,15 @@
   height: 350px; /* Aumenta a altura do card */
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Manter sombra original */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  /* Não tem background direto no card, o background da imagem e do content é que definem */
 }
 
 .institution-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Manter sombra original */
 }
 
 .institution-card img {
@@ -26,13 +27,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.2); /* Fundo escuro com transparência */
-  color: white;
+  background: rgba(0, 0, 0, 0.2); /* Fundo escuro com transparência (manter fixo por ser sobreposição da imagem) */
+  color: white; /* Cor do texto no overlay (manter branco para contraste com a imagem escura) */
   padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
+  transition: background 0.3s ease, color 0.3s ease; /* Adicionar transição */
 }
 
 .institution-card-content h3 {
@@ -53,8 +55,8 @@
 }
 
 .institution-card-tag {
-  background-color: rgba(37, 99, 235, 0.8); /* Azul com 80% de opacidade */
-  color: white;
+  background-color: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste */
   font-size: 13px; /* Ajusta o tamanho da fonte */
   padding: 4px 8px;
   border-radius: 8px;
@@ -62,7 +64,7 @@
 }
 
 .institution-card-tag:hover {
-  background-color: rgba(37, 99, 235, 1); /* Azul sólido ao passar o mouse */
+  background-color: var(--button-hover-color); /* Usar variável */
 }
 
 .institution-card-buttons {
@@ -76,8 +78,8 @@
 }
 
 .institution-card-button {
-  background-color: rgba(37, 99, 235, 0.8); /* Azul com 80% de opacidade */
-  color: white;
+  background-color: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste */
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -87,10 +89,10 @@
 }
 
 .institution-card-button:hover {
-  background-color: rgba(30, 64, 175, 1); /* Azul mais escuro sólido ao passar o mouse */
+  background-color: var(--button-hover-color); /* Usar variável */
 }
 
-/* Estilos para tablets (largura máxima de 768px) */
+/* Estilos para tablets (largura máxima de 768px) - MANTIDAS INTACTAS */
 @media (max-width: 768px) {
   .institution-card {
     max-width: 500px; /* Reduz o tamanho máximo do card para tablets */
@@ -111,7 +113,7 @@
   }
 }
 
-/* Estilos para dispositivos móveis (largura máxima de 480px) */
+/* Estilos para dispositivos móveis (largura máxima de 480px) - MANTIDAS INTACTAS */
 @media (max-width: 480px) {
   .institution-card {
     max-width: 100%; /* O card ocupa toda a largura disponível */
@@ -137,29 +139,37 @@
   }
 }
 
+/* PAGINATION CONTROLS */
 .pagination-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
   gap: 10px;
+  color: var(--text-color); /* Usar variável para o texto da paginação */
+  transition: color 0.3s ease; /* Adicionar transição */
 }
 
 .pagination-button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color); /* Usar variável */
+  color: white; /* Manter branco para contraste */
   border: none;
   padding: 10px 14px;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:hover:not(:disabled) { /* Adicionado :not(:disabled) para hover */
+  background-color: var(--button-hover-color); /* Usar variável */
 }
 
 .pagination-button:disabled {
-  background-color: #ccc;
+  background-color: var(--border-color); /* Usar variável para botão desabilitado */
+  color: var(--placeholder-color); /* Usar variável para texto de botão desabilitado */
   cursor: not-allowed;
 }
 
 .page-indicator {
   font-weight: bold;
 }
-
