@@ -7,6 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
+
 const Home: React.FC = () => {
     useEffect(() => {
         AOS.init({ duration: 1500, once: true });
@@ -23,8 +24,7 @@ const Home: React.FC = () => {
             <h1>Transforme Vidas com Sua Generosidade</h1>
             <p>Juntos podemos fazer a diferença. Cada doação é um passo em direção a um mundo mais justo e solidário.</p>
             <div className="hero-buttons">
-            <a href="/campanhas" className="btn-primary">Doe Agora</a>
-            <a href="/sobre" className="btn-secondary">Saiba Mais</a>
+            <a href="/donation" className="btn-primary">Faça sua Doação</a>
             </div>
         </div>
         </section>
@@ -33,44 +33,35 @@ const Home: React.FC = () => {
         <section className="impact-section">
         <div className="impact-grid">
             <div className="impact-item">
-            <h3><CountUp start={9000} end={12500} duration={3.5} separator="." />+</h3>
+            <h3><CountUp start={9000} end={53500} duration={5.5} separator="." />+</h3>
             <p>Pessoas Ajudadas</p>
             </div>
             <div className="impact-item">
-            <h3>R$ <CountUp start={1000000} end={1200000} duration={3.5} prefix="" separator="." decimal="," decimals={0} /></h3>
+            <h3>R$ <CountUp start={1000000} end={3000000} duration={5.5} prefix="" separator="." decimal="," decimals={0} /></h3>
             <p>Doações Arrecadadas</p>
             </div>
             <div className="impact-item">
-            <h3><CountUp start={0} end={85} duration={3.5} />+</h3>
+            <h3><CountUp start={0} end={100} duration={5.5} />+</h3>
             <p>Projetos Realizados</p>
             </div>
         </div>
         </section>
 
 
-        {/* Campanhas em Destaque */}
         <section className="featured-campaigns">
         <div className="section-header"  data-aos="fade-up" >
-            <h2>Campanhas em Destaque</h2>
-            <p>Conheça algumas campanhas que estão mudando vidas.</p>
+            <h2>Instituições em Destaque</h2>
+            <p>Conheça algumas instituições que estão mudando vidas.</p>
         </div>
         <div className="campaigns-grid" data-aos="fade-up">
             {/* Card 1 */}
             <div className="campaign-card">
                 <div className="campaign-banner banner-educacao"></div>
                 <div className="campaign-content">
-                <h3>Educação para Todos</h3>
-                <p>Ajude a construir uma biblioteca comunitária para crianças.</p>
-                <div className="progress-bar-container">
-                    <div className="progress-text">
-                    <span>R$ 45.000</span>
-                    <span>R$ 60.000</span>
-                    </div>
-                    <div className="progress-bar">
-                    <div className="progress-value" style={{ width: '75%' }}></div>
-                    </div>
-                </div>
-                <a href="/campanhas" className="btn-primary">Doar Agora</a>
+                <h3>Hospital Pequeno Príncipe</h3>
+                <p>O Pequeno Príncipe é mais do que o maior e mais completo hospital pediátrico do Brasil. É um centro de referência no qual se pratica, ensina e pesquisa o que há de mais moderno para o diagnóstico e o tratamento de crianças e adolescentes. É um hospital que se preocupa com a saúde dos seus pacientes, para além do tratamento das suas doenças.</p>
+        
+                <a href="/donation" className="btn-primary">Doar Agora</a>
                 </div>
             </div>
 
@@ -78,18 +69,9 @@ const Home: React.FC = () => {
             <div className="campaign-card">
                 <div className="campaign-banner banner-saude"></div>
                 <div className="campaign-content">
-                <h3>Saúde para Comunidades</h3>
-                <p>Ajude a equipar postos médicos em áreas rurais.</p>
-                <div className="progress-bar-container">
-                    <div className="progress-text">
-                    <span>R$ 28.500</span>
-                    <span>R$ 50.000</span>
-                    </div>
-                    <div className="progress-bar">
-                    <div className="progress-value" style={{ width: '57%' }}></div>
-                    </div>
-                </div>
-                <a href="/campanhas" className="btn-primary">Doar Agora</a>
+                <h3>Casa do Zezinho</h3>
+                <p>A Casa do Zezinho é uma ONG localizada na zona sul de São Paulo conhecida como ‘Triângulo da Morte’, que engloba Capão Redondo, Jardim Ângela e Jardim São Luís. Fundada em 1994 por Dagmar Rivieri, pedagoga formada pela USP, mais conhecida como ‘Tia Dag’, a Casa do Zezinho busca acolher crianças e jovens em situação de vulnerabilidade social e oferecer, no contraturno escolar, duas refeições por dia e mais de 25 opções de oficinas socioeducativas.</p>
+                <a href="/donation" className="btn-primary">Doar Agora</a>
                 </div>
             </div>
 
@@ -97,25 +79,17 @@ const Home: React.FC = () => {
             <div className="campaign-card">
                 <div className="campaign-banner banner-alimento"></div>
                 <div className="campaign-content">
-                <h3>Alimento Solidário</h3>
-                <p>Distribua cestas básicas a famílias carentes.</p>
-                <div className="progress-bar-container">
-                    <div className="progress-text">
-                    <span>R$ 18.200</span>
-                    <span>R$ 30.000</span>
-                    </div>
-                    <div className="progress-bar">
-                    <div className="progress-value" style={{ width: '61%' }}></div>
-                    </div>
-                </div>
-                <a href="/campanhas" className="btn-primary">Doar Agora</a>
+                <h3>Banco de Alimnetos</h3>
+                <p>Fundada em 1998, a ONG Banco de Alimentos é uma associação civil que recolhe alimentos que já perderam valor de prateleira no comércio e indústria, mas ainda estão aptos para consumo, e os distribui onde são mais necessários.</p>
+
+                <a href="/donation" className="btn-primary">Doar Agora</a>
                 </div>
             </div>
         </div>
 
 
         <div className="see-all-button">
-            <a href="/campanhas" className="btn-secondary">Todas as Campanhas</a>
+            <a href="/institutions" className="btn-secondary">Todas as Instituições</a>
         </div>
         </section>
 
@@ -129,7 +103,7 @@ const Home: React.FC = () => {
             <div className='image-step1'>
                 <div className="step">
                 <h3>1. Escolha uma Causa</h3>
-                <p>Encontre uma campanha que ressoe com seus valores.</p>
+                <p>Encontre uma Instituição que ressoe com seus valores.</p>
                 </div>
             </div>
 
@@ -176,8 +150,8 @@ const Home: React.FC = () => {
         <h2>Pronto para fazer a diferença?</h2>
         <p>Junte-se a milhares de pessoas transformando vidas.</p>
         <div className="cta-buttons">
-            <a href="/campanhas" className="btn-primary">Doe Agora</a>
-            <a href="/voluntario" className="btn-outline">Seja Voluntário</a>
+            <a href="/donation" className="btn-primary">Doe Agora</a>
+            <a href="/login" className="btn-outline">Seja Voluntário</a>
         </div>
         </section>
 
