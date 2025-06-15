@@ -223,14 +223,7 @@ const DonationPage = () => {
                     Doar agora
                     </button>
                     
-                    <div className="security-info">
-                    <p>Suas informações estão seguras e protegidas</p>
-                    <div className="security-icons">
-                        <span>🔒</span>
-                        <span>💳</span>
-                        <span>🛡️</span>
-                    </div>
-                    </div>
+                    
                 </form>
                 </div>
             </div>
