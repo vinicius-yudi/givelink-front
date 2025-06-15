@@ -122,16 +122,6 @@ const Login = () => {
 
               <button className="btn-login" onClick={handleLogin}>ENTRAR</button>
 
-            <div className="divider">- OU -</div>
-
-            <button className="btn-google">
-              <img
-                src="https://www.svgrepo.com/show/475656/google-color.svg"
-                alt="Google"
-                className="google-icon"
-              />
-              Continue com Google
-            </button>
 
             <p className="signup-link">
               Não tem conta? <a href="/register">Cadastre-se</a>

@@ -10,7 +10,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1rem;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .donation-card {
@@ -58,9 +58,7 @@
   margin-bottom: 1.5rem;
 }
 
-.progress-section {
-  margin-bottom: 2rem;
-}
+
 
 .progress-header {
   display: flex;
@@ -71,14 +69,14 @@
 .progress-bar-container {
   height: 0.75rem;
   background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 9999px;
   overflow: hidden;
+  border-radius: 9999px;
+
 }
 
 .progress-bar {
   height: 100%;
   background-color: white;
-  border-radius: 9999px;
   transition: width 1.5s ease-in-out;
 }
 
@@ -264,7 +262,6 @@ input{
 @media (max-width: 500px) {
   .container {
     padding: 0.5rem 0.2rem;
-    margin-top: 210px;
   }
   .donation-card {
     border-radius: 0.5rem;
@@ -338,3 +335,19 @@ input{
     font-size: 0.8rem;
   }
 }
+
+@media (max-width: 767px) {
+  .donation-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .impact-visualization {
+    width: 100% !important;
+  }
+
+  .impact-visualization {
+    box-sizing: border-box;
+  }
+}
+

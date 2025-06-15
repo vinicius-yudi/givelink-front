@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import "./Admin.css";
+import "../styles/Admin.css";
 import { validateTokenJwtRedirect, validateTokenJwtRedirectWithNoUseEffects } from "../utils/security";
 import { useEffect } from "react";
 

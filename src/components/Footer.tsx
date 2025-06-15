@@ -52,9 +52,8 @@ const Footer: React.FC = () => {
             <h3 className="footer-title">Links Úteis</h3>
             <ul className="footer-links">
               <li><Link to="/">Início</Link></li>
-              <li><Link to="/sobre">Sobre</Link></li>
-              <li><Link to="/campanhas">Campanhas</Link></li>
-              <li><Link to="/contato">Contato</Link></li>
+              <li><Link to="/admin">Gerencial</Link></li>
+              <li><Link to="/institutions">instituições</Link></li>
             </ul>
           </div>
 
@@ -62,9 +61,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="footer-title">Nossos Serviços</h3>
             <ul className="footer-links">
-              <li><Link to="/desenvolvimento-web">Instituições</Link></li>
-              <li><Link to="/desenvolvimento-web">Painel do Doador</Link></li>
-              <li><Link to="/design-grafico">Dashboards</Link></li>
+              <li><Link to="/institutions">Instituições</Link></li>
+              <li><Link to="/donorsList">Painel do Doador</Link></li>
+              <li><Link to="/Resources">Dashboards</Link></li>
             </ul>
           </div>
 

@@ -139,16 +139,9 @@ const Register = () => {
 
             <button className="btn-submit" onClick={handleRegister}>CADASTRAR</button>
 
-            <div className="divider">- OU -</div>
+            
 
-            <button className="btn-google">
-              <img
-                src="https://www.svgrepo.com/show/475656/google-color.svg"
-                alt="Google"
-                className="google-icon"
-              />
-              Continue com Google
-            </button>
+          
 
             <p className="login-link">
               Já possui conta? <a href="/login">Faça seu Login</a>

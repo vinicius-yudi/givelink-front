@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
-import './InstitutionDetailModal.css';
+import '../components/InstitutionDetailModal.css';
 
 interface DonorDetailModalProps {
   open: boolean;

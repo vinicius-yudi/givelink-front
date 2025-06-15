@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import './Resources.css';
+import '../styles/Resources.css';
 import { FaTrash, FaEdit } from "react-icons/fa";
 
 const PAGE_SIZE = 6;
@@ -153,7 +153,7 @@ function Resources() {
         className="edit-button"
         onClick={() => handleEdit(item)}
         title="Editar"
-        style={{ marginRight: "8px" }}
+        style={{ marginRight: "0px" }}
     >
         <FaEdit />
     </button>
@@ -264,7 +264,7 @@ function Resources() {
     return (
         <div className="edit-overlay">
         <div className="edit-card">
-            <h2>Editar {selectedType.slice(0, -1)}</h2>
+            <h2>Editar {selectedType.slice(0)}</h2>
             <div className="form-fields">
             {selectedType === "Usuários" && (
             <>

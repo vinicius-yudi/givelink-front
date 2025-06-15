@@ -1,10 +1,11 @@
 .donors-register-page {
   min-height: 100vh;
-  background: #f7f8fa;
   display: flex;
   justify-content: center;
   align-items: center;
   background: url('../assets/background2.jpg') no-repeat center center fixed;
+  background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+
 }
 
 .form-container {
@@ -53,7 +54,7 @@
 }
 
 .submit-button {
-  width: 430px;
+  width: 420px;
   padding: 1rem 0;
   background: #2563eb;
   color: #fff;
@@ -63,7 +64,6 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
-  margin-top: 0.5rem;
 }
 
 .submit-button:hover {
@@ -75,7 +75,6 @@
   .donors-register-page {
     padding: 20px;
     background-size: cover;
-    margin-top: 100px;
   }
 
   .form-container {
