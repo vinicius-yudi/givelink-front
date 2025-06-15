@@ -1,28 +1,30 @@
-
 .institution-register-page {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100dvh;
-  background: url('../assets/background2.jpg') no-repeat center center fixed;
+  background: url('../assets/background2.jpg') no-repeat center center fixed; /* Manter imagem de fundo */
   background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
-
+  /* Transição de cor de texto se houver texto solto na página fora do formulário */
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .form-container {
-  background: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  background: var(--card-background); /* Usar variável para o fundo do formulário */
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Manter sombra, pode ajustar opacidade no dark mode se quiser */
   max-width: 500px;
   width: 100%;
   text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionar transição */
 }
 
 h1 {
   font-size: 30px;
   margin-bottom: 30px;
-  color: #2563eb;
+  color: var(--primary-color); /* Usar variável */
   font-weight: bold;
 }
 
@@ -36,7 +38,7 @@ label {
   font-size: 16px;
   margin-bottom: 5px;
   font-weight: bold;
-  color: black;
+  color: var(--text-color); /* Usar variável */
 }
 
 input,
@@ -44,17 +46,22 @@ select {
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color); /* Usar variável */
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.3s ease;
-  background-color: #FFFFFF;
-  color: black;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Adicionar transição */
+  background-color: var(--input-background); /* Usar variável */
+  color: var(--input-text-color); /* Usar variável */
+}
+
+input::placeholder,
+select::placeholder {
+  color: var(--placeholder-color); /* Usar variável para placeholder */
 }
 
 input:focus,
 select:focus {
-  border-color: #2563eb;
+  border-color: var(--primary-color); /* Usar variável */
 }
 
 .submit-button {
@@ -62,23 +69,23 @@ select:focus {
   margin-top: 30px;
   padding: 14px;
   font-size: 15px;
-  background: #2563eb;
+  background: var(--primary-color); /* Usar variável */
   font-weight: bold;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  color: white; /* Manter branco para contraste no botão */
 }
 
 .submit-button:hover {
-  background: #1e40af;
+  background: var(--button-hover-color); /* Usar variável */
 }
 
-/* Responsividade para tablets (largura máxima de 768px) */
+/* Responsividade para tablets (largura máxima de 768px) - MANTIDAS INTACTAS */
 @media (max-width: 768px) {
   .form-container {
     max-width: 400px; /* Reduz o tamanho máximo do formulário */
-
   }
 
   h1 {
@@ -97,11 +104,10 @@ select:focus {
   }
 }
 
-/* Responsividade para dispositivos móveis (largura máxima de 480px) */
+/* Responsividade para dispositivos móveis (largura máxima de 480px) - MANTIDAS INTACTAS */
 @media (max-width: 480px) {
   .form-container {
     padding: 20px;
-
   }
 
   h1 {
@@ -119,4 +125,3 @@ select:focus {
     padding: 10px;
   }
 }
-
