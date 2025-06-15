@@ -66,7 +66,11 @@ const Dashboard = () => {
   const prepareBarData = (obj: Record<string, number>) =>
     Object.entries(obj)
       .sort((a, b) => b[1] - a[1])
-      .map(([name, value]) => ({ name, value }));
+      .map(([name, value], index) => ({
+        id: `${name}-${index}`, // key única
+        name,
+        value
+      }));
 
   return (
     <>
@@ -150,13 +154,18 @@ const Dashboard = () => {
                 <h2>Top 10 Doadores</h2>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={prepareBarData(data.top10_donors)}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <ReTooltip />
-                    <Legend />
-                    <Bar dataKey="value" fill="#8884d8" />
-                  </BarChart>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis tickFormatter={(value) => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} />
+                  <ReTooltip
+                    formatter={(value: number) =>
+                      value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+                    }
+                    labelFormatter={(label) => `Doadores: ${label}`}
+                  />
+                  <Legend />
+                  <Bar dataKey="value" name="Total de doações" fill="#8884d8" />
+                </BarChart>
                 </ResponsiveContainer>
               </div>
 
@@ -164,13 +173,18 @@ const Dashboard = () => {
                 <h2>Top 10 Instituições</h2>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={prepareBarData(data.top10_institutions)}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <ReTooltip />
-                    <Legend />
-                    <Bar dataKey="value" fill="#82ca9d" />
-                  </BarChart>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis tickFormatter={(value) => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} />
+                  <ReTooltip
+                    formatter={(value: number) =>
+                      value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+                    }
+                    labelFormatter={(label) => `Instituição: ${label}`}
+                  />
+                  <Legend />
+                  <Bar dataKey="value" name="Total de doações" fill="#82ca9d" />
+                </BarChart>
                 </ResponsiveContainer>
               </div>
             </div>
